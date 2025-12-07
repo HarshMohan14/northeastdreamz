@@ -9,8 +9,10 @@ import PackagesSection from '@/components/PackagesSection'
 import ReviewsSection from '@/components/ReviewsSection'
 import GallerySection from '@/components/GallerySection'
 import BlogSection from '@/components/BlogSection'
+import InquiryFormSection from '@/components/InquiryFormSection'
 import Footer from '@/components/Footer'
 import BookingModal from '@/components/BookingModal'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 export default function Home() {
   const [showBooking, setShowBooking] = useState(false)
@@ -33,7 +35,9 @@ export default function Home() {
       <ReviewsSection />
       <GallerySection />
       <BlogSection />
+      <InquiryFormSection />
       <Footer />
+      <WhatsAppButton />
       <BookingModal
         isOpen={showBooking}
         onClose={() => {
