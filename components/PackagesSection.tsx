@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
+import { FileText } from 'lucide-react'
 import { PACKAGE_DATA, Package } from '@/lib/data'
 import ItineraryModal from './ItineraryModal'
 import BookingModal from './BookingModal'
@@ -156,9 +157,8 @@ export default function PackagesSection() {
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true, margin: '-50px' }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className={`${size.col} ${size.row} group cursor-pointer relative`}
+                      className={`${size.col} ${size.row} group relative`}
                       style={{ minHeight: '400px' }}
-                      onClick={() => handleViewItinerary(pkg)}
                     >
                       <div className="relative w-full h-full min-h-[400px] overflow-hidden bg-gray-100">
                         <div className="absolute inset-0">
@@ -175,9 +175,23 @@ export default function PackagesSection() {
 
                         {/* Default: Always show package name */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4 md:p-6 z-10">
-                          <h3 className="text-lg md:text-xl font-bold section-title text-white">
+                          <h3 className="text-lg md:text-xl font-bold section-title text-white mb-4">
                             {pkg.name}
                           </h3>
+                          
+                          {/* View Itinerary Button - Always visible */}
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleViewItinerary(pkg)
+                            }}
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <FileText className="w-[15px] h-[15px]" />
+                            <span className="text-[13px] md:text-[15px]">View Itinerary</span>
+                          </motion.button>
                         </div>
 
                         {/* Hover: Show impactful description */}
@@ -185,9 +199,23 @@ export default function PackagesSection() {
                           <h3 className="text-lg md:text-xl font-bold section-title text-white mb-2">
                             {pkg.name}
                           </h3>
-                          <p className="text-white/95 text-sm md:text-base font-light leading-relaxed">
+                          <p className="text-white/95 text-sm md:text-base font-light leading-relaxed mb-4">
                             {pkg.days}-day immersive journey through {pkg.state}'s hidden gems
                           </p>
+                          
+                          {/* View Itinerary Button - Also visible on hover */}
+                          <motion.button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              handleViewItinerary(pkg)
+                            }}
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <FileText className="w-[15px] h-[15px]" />
+                            <span className="text-[13px] md:text-[15px]">View Itinerary</span>
+                          </motion.button>
                         </div>
                       </div>
                     </motion.div>
