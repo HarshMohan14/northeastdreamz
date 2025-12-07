@@ -3,35 +3,10 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import BookingModal from './BookingModal'
 import { useState } from 'react'
-
-const blogPosts = [
-  {
-    id: 1,
-    state: 'Meghalaya',
-    title: '5 Days in Shillong: A Perfect Itinerary',
-    description: 'From crystal clear rivers to the misty cliffs of Laitlum Canyon, plan your trip now.',
-    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop',
-    alt: 'Misty hills of Meghalaya',
-  },
-  {
-    id: 2,
-    state: 'Assam',
-    title: "Kaziranga's Magic: The One-Horned Rhino",
-    description: 'A complete guide to safari bookings and the best time to visit the sanctuary.',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop',
-    alt: 'Tea gardens of Assam',
-  },
-  {
-    id: 3,
-    state: 'Sikkim',
-    title: 'Trekking to the Roof of the World',
-    description: 'Insider tips for planning your high-altitude Kanchenjunga base camp trek.',
-    image: 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=600&h=400&fit=crop',
-    alt: 'Himalayan peaks of Sikkim',
-  },
-]
+import { BLOG_POSTS } from '@/lib/data'
 
 export default function BlogSection() {
   const [showBooking, setShowBooking] = useState(false)
@@ -68,7 +43,7 @@ export default function BlogSection() {
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10">
-            {blogPosts.map((post, index) => (
+            {BLOG_POSTS.map((post, index) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 100 }}
@@ -98,23 +73,15 @@ export default function BlogSection() {
                   </span>
                   <h3 className="text-xl md:text-2xl font-semibold section-title text-gray-900 mb-4">{post.title}</h3>
                   <p className="text-gray-600 text-base mb-6 leading-relaxed">{post.description}</p>
-                  <motion.a
-                    whileHover={{ x: 5 }}
-                    href="#packages"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      const element = document.querySelector('#packages')
-                      if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' })
-                      }
-                    }}
+                  <Link
+                    href={`/blog/${post.slug}`}
                     className="text-brand-primary font-light hover:text-brand-accent transition-colors inline-flex items-center space-x-2"
                   >
-                    <span>Read More</span>
+                    <motion.span whileHover={{ x: 5 }}>Read More</motion.span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
-                  </motion.a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

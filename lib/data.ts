@@ -496,3 +496,203 @@ export const STATES = [
   },
 ]
 
+export interface BlogPost {
+  id: number
+  slug: string
+  state: string
+  title: string
+  description: string
+  image: string
+  alt: string
+  content: string
+  date: string
+  author: string
+}
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    id: 1,
+    slug: '5-days-in-shillong-perfect-itinerary',
+    state: 'Meghalaya',
+    title: '5 Days in Shillong: A Perfect Itinerary',
+    description: 'From crystal clear rivers to the misty cliffs of Laitlum Canyon, plan your trip now.',
+    image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=400&fit=crop',
+    alt: 'Misty hills of Meghalaya',
+    date: '2024-12-15',
+    author: 'Northeast Dreamz Team',
+    content: `
+      <p class="mb-6 text-gray-700 leading-relaxed">
+        Shillong, the capital of Meghalaya, is often called the "Scotland of the East" for its rolling hills, 
+        misty weather, and colonial charm. This 5-day itinerary will take you through the best that Shillong 
+        and its surrounding areas have to offer.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Day 1: Arrival and Local Exploration</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Start your journey by arriving in Shillong and checking into your accommodation. Take a leisurely 
+        stroll through the city center, visit the Shillong Peak for panoramic views, and explore the local 
+        markets. Don't miss trying the local Khasi cuisine at one of the many restaurants.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Day 2: Cherrapunji and Living Root Bridges</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Drive to Cherrapunji, the wettest place on Earth. Visit the famous Nohkalikai Falls, explore the 
+        Mawsmai Caves, and witness the incredible living root bridges. These bridges, grown over centuries 
+        by the Khasi people, are a testament to sustainable engineering.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Day 3: Dawki and Crystal Clear Rivers</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Head to Dawki to see the Umngot River, one of the clearest rivers in India. The water is so clear 
+        that boats appear to float in mid-air. Enjoy boating, kayaking, or simply marvel at the natural beauty. 
+        Visit the nearby Mawlynnong village, known as Asia's cleanest village.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Day 4: Laitlum Canyon and Local Culture</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Experience the breathtaking Laitlum Grand Canyon with its dramatic cliffs and valleys. Later, immerse 
+        yourself in the local Khasi culture by visiting traditional villages, learning about their matrilineal 
+        society, and enjoying local music and dance performances.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Day 5: Departure</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Enjoy a final breakfast in Shillong, do some last-minute shopping for local handicrafts and tea, 
+        and then depart with memories that will last a lifetime.
+      </p>
+      
+      <p class="mt-8 text-gray-700 leading-relaxed">
+        This itinerary can be customized based on your interests and time constraints. Whether you're a 
+        nature lover, adventure seeker, or culture enthusiast, Shillong has something special for everyone.
+      </p>
+    `,
+  },
+  {
+    id: 2,
+    slug: 'kaziranga-magic-one-horned-rhino',
+    state: 'Assam',
+    title: "Kaziranga's Magic: The One-Horned Rhino",
+    description: 'A complete guide to safari bookings and the best time to visit the sanctuary.',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=400&fit=crop',
+    alt: 'Tea gardens of Assam',
+    date: '2024-12-10',
+    author: 'Northeast Dreamz Team',
+    content: `
+      <p class="mb-6 text-gray-700 leading-relaxed">
+        Kaziranga National Park is a UNESCO World Heritage Site and home to two-thirds of the world's 
+        one-horned rhinoceros population. This guide will help you plan the perfect wildlife safari experience.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">About Kaziranga</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Spread across 430 square kilometers, Kaziranga is one of India's most important wildlife reserves. 
+        Besides the one-horned rhino, the park is home to tigers, elephants, wild water buffalo, and over 
+        500 species of birds. The park is divided into four zones, each offering unique wildlife viewing opportunities.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Best Time to Visit</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        The best time to visit Kaziranga is from November to April. The park is closed during the monsoon 
+        season (May to October) due to flooding. November to February offers pleasant weather and excellent 
+        wildlife sightings, while March to April is warmer but still good for safaris.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Safari Options</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        <strong>Elephant Safari:</strong> Available in the early morning, this is the best way to get close 
+        to rhinos. The elephants can navigate through tall grass where jeeps cannot go.
+      </p>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        <strong>Jeep Safari:</strong> Available in multiple time slots throughout the day. This allows you 
+        to cover more ground and see a variety of wildlife. Bookings can be made online or at the park entrance.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">What to Expect</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        During your safari, you'll likely spot one-horned rhinos, wild elephants, various deer species, 
+        and numerous birds. If you're lucky, you might catch a glimpse of the elusive Bengal tiger. The 
+        park's grasslands and wetlands create a stunning backdrop for wildlife photography.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Tips for Visitors</h2>
+      <ul class="list-disc list-inside mb-4 text-gray-700 leading-relaxed space-y-2">
+        <li>Book your safaris in advance, especially during peak season</li>
+        <li>Carry binoculars and a good camera</li>
+        <li>Wear earth-toned clothing to blend with the environment</li>
+        <li>Follow all park rules and maintain silence during safaris</li>
+        <li>Stay hydrated and carry snacks</li>
+      </ul>
+    `,
+  },
+  {
+    id: 3,
+    slug: 'trekking-roof-of-the-world',
+    state: 'Sikkim',
+    title: 'Trekking to the Roof of the World',
+    description: 'Insider tips for planning your high-altitude Kanchenjunga base camp trek.',
+    image: 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=600&h=400&fit=crop',
+    alt: 'Himalayan peaks of Sikkim',
+    date: '2024-12-05',
+    author: 'Northeast Dreamz Team',
+    content: `
+      <p class="mb-6 text-gray-700 leading-relaxed">
+        Sikkim offers some of the most spectacular trekking experiences in the Himalayas. The Kanchenjunga 
+        base camp trek is a challenging but rewarding journey that takes you through pristine landscapes, 
+        remote villages, and close to the world's third-highest peak.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Trek Overview</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        The Kanchenjunga base camp trek typically takes 20-25 days and reaches altitudes of over 5,000 meters. 
+        The trek takes you through diverse terrain including dense forests, alpine meadows, and high-altitude 
+        deserts. You'll witness stunning views of Kanchenjunga and other Himalayan peaks throughout the journey.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Best Time to Trek</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        The best months for trekking in Sikkim are March to May (spring) and September to November (autumn). 
+        During these periods, the weather is generally clear, and the views are spectacular. Avoid the monsoon 
+        season (June to August) due to heavy rainfall and the winter months (December to February) due to 
+        extreme cold and snow.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Physical Preparation</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        This is a challenging trek that requires good physical fitness. Start training at least 2-3 months 
+        before your trek. Focus on cardiovascular exercises, strength training, and regular hiking. Acclimatization 
+        is crucial, so plan for rest days during the trek.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Essential Gear</h2>
+      <ul class="list-disc list-inside mb-4 text-gray-700 leading-relaxed space-y-2">
+        <li>High-quality trekking boots with good ankle support</li>
+        <li>Layered clothing for varying temperatures</li>
+        <li>Sleeping bag rated for sub-zero temperatures</li>
+        <li>Trekking poles for stability</li>
+        <li>Headlamp and extra batteries</li>
+        <li>First aid kit and personal medications</li>
+        <li>Water purification tablets</li>
+      </ul>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">Permits and Regulations</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        Trekking in Sikkim requires special permits, especially for restricted areas near the border. These 
+        permits must be obtained through registered tour operators. It's mandatory to trek with a licensed 
+        guide and porters. Make sure to book with a reputable agency that handles all permit formalities.
+      </p>
+      
+      <h2 class="text-2xl font-semibold text-brand-primary mb-4 mt-8">What to Expect</h2>
+      <p class="mb-4 text-gray-700 leading-relaxed">
+        The trek will take you through remote villages where you can experience local culture and hospitality. 
+        You'll camp in beautiful locations with stunning mountain views. The journey is physically demanding 
+        but the sense of achievement and the breathtaking scenery make it all worthwhile.
+      </p>
+      
+      <p class="mt-8 text-gray-700 leading-relaxed">
+        Remember, safety should always be your top priority. Listen to your guide, stay hydrated, and don't 
+        push yourself beyond your limits. The mountains will always be there, but your health comes first.
+      </p>
+    `,
+  },
+]
+
