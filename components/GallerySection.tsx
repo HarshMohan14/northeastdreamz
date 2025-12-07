@@ -229,7 +229,7 @@ export default function GallerySection() {
                 className="flex-shrink-0 w-80 h-80 md:w-[450px] md:h-[450px] rounded-3xl overflow-hidden premium-shadow-2xl"
               >
                 <Image
-                  src={hasError ? 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop' : src}
+                  src={hasError ? '/Northeast Dreamz Image Bank/Mawlynnong.webp' : src}
                   alt="Northeast India Travel Photo"
                   width={450}
                   height={450}

@@ -60,20 +60,20 @@ export default function PackagesSection() {
 
   const getNortheastPlaceholder = (state: string) => {
     const images: Record<string, string> = {
-      'Meghalaya': 'https://images.unsplash.com/photo-1568644577260-0568ed0217e0?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'Assam': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop',
-      'Arunachal Pradesh': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop',
-      'Sikkim': 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=1200&h=800&fit=crop',
+      'Meghalaya': '/Northeast Dreamz Image Bank/all-saints-church-shillong-meghalaya-2-attr-hero.jpg',
+      'Assam': '/Northeast Dreamz Image Bank/Shillong cherry blossom meghalaya.jpg',
+      'Arunachal Pradesh': '/Northeast Dreamz Image Bank/sukumar-bardoloi-kWjU2ZS53U8-unsplash.jpg',
+      'Sikkim': '/Northeast Dreamz Image Bank/framesbytanmay-WSpzdB7DMjA-unsplash.jpg',
     }
-    return images[state] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop'
+    return images[state] || '/Northeast Dreamz Image Bank/Mawlynnong.webp'
   }
 
   // Northeast nature images for each grid item - showcasing diverse Northeast India landscapes
   const northeastNatureImages = [
-    'https://images.unsplash.com/photo-1568644577260-0568ed0217e0?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Grid 1: Meghalaya - Misty hills, waterfalls, and lush green valleys
-    'https://images.unsplash.com/photo-1594514113865-d1deac339435?q=80&w=2802&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Grid 2: Assam - Tea gardens, Kaziranga grasslands, and green landscapes
-    'https://images.unsplash.com/photo-1705851965750-8587a65d4fd1?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Grid 3: Sikkim - Himalayan peaks, alpine meadows, and snow-capped mountains
-    'https://images.unsplash.com/photo-1712055196085-bf5fb4198259?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Grid 4: Arunachal Pradesh - Dense forests, mountain ranges, and pristine valleys
+    '/Northeast Dreamz Image Bank/Mawlynnong.webp', // Grid 1: Meghalaya - Misty hills, waterfalls, and lush green valleys
+    '/Northeast Dreamz Image Bank/mawsmai_cave_5856.jpg', // Grid 2: Assam - Tea gardens, Kaziranga grasslands, and green landscapes
+    '/Northeast Dreamz Image Bank/Reach-dawki-by-road.jpg', // Grid 3: Sikkim - Himalayan peaks, alpine meadows, and snow-capped mountains
+    '/Northeast Dreamz Image Bank/travel-to-mawlynnong-village.jpg', // Grid 4: Arunachal Pradesh - Dense forests, mountain ranges, and pristine valleys
   ]
 
   const handleImageError = (pkgId: number) => {

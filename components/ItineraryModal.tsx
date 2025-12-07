@@ -30,12 +30,12 @@ export default function ItineraryModal({ packageData, isOpen, onClose, onBooking
 
   const getNortheastPlaceholder = (state: string) => {
     const images: Record<string, string> = {
-      'Meghalaya': 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
-      'Assam': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
-      'Arunachal Pradesh': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-      'Sikkim': 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+      'Meghalaya': '/Northeast Dreamz Image Bank/all-saints-church-shillong-meghalaya-2-attr-hero.jpg',
+      'Assam': '/Northeast Dreamz Image Bank/Shillong cherry blossom meghalaya.jpg',
+      'Arunachal Pradesh': '/Northeast Dreamz Image Bank/sukumar-bardoloi-kWjU2ZS53U8-unsplash.jpg',
+      'Sikkim': '/Northeast Dreamz Image Bank/framesbytanmay-WSpzdB7DMjA-unsplash.jpg',
     }
-    return images[state] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
+    return images[state] || '/Northeast Dreamz Image Bank/Mawlynnong.webp'
   }
 
   const downloadItinerary = () => {
@@ -75,8 +75,8 @@ ${'='.repeat(60)}
 
   const galleryImages = packageData.gallery || [
     getNortheastPlaceholder(packageData.state),
-    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+    '/Northeast Dreamz Image Bank/mawsmai_cave_5856.jpg',
+    '/Northeast Dreamz Image Bank/Reach-dawki-by-road.jpg',
   ]
 
   return (
@@ -127,23 +127,38 @@ ${'='.repeat(60)}
               <h4 className="text-2xl font-semibold section-title text-brand-primary mt-10 mb-8 border-b border-gray-200 pb-3">
                 Detailed Itinerary
               </h4>
-              <div className="space-y-6">
-                {packageData.itinerary.map((item, index) => (
-                  <div key={item.day} className="flex space-x-4">
-                    <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 flex items-center justify-center bg-brand-primary text-white rounded-full font-light flex-shrink-0">
-                        {item.day}
+              <div className="space-y-8">
+                {packageData.itinerary.map((item, index) => {
+                  // Get image for this day - cycle through gallery images
+                  const dayImage = galleryImages[index % galleryImages.length] || galleryImages[0]
+                  return (
+                    <div key={item.day} className="flex flex-col md:flex-row gap-6">
+                      <div className="flex space-x-4 flex-1">
+                        <div className="flex flex-col items-center">
+                          <div className="w-10 h-10 flex items-center justify-center bg-brand-primary text-white rounded-full font-light flex-shrink-0">
+                            {item.day}
+                          </div>
+                          {index < packageData.itinerary.length - 1 && (
+                            <div className="h-full w-0.5 bg-gray-200 my-2" />
+                          )}
+                        </div>
+                        <div className="pt-1 flex-1">
+                          <h4 className="text-xl font-light text-gray-900 mb-2">{item.title}</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                        </div>
                       </div>
-                      {index < packageData.itinerary.length - 1 && (
-                        <div className="h-full w-0.5 bg-gray-200 my-2" />
-                      )}
+                      <div className="relative w-full md:w-64 h-48 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 premium-shadow">
+                        <Image
+                          src={dayImage}
+                          alt={`Day ${item.day}: ${item.title}`}
+                          fill
+                          className="object-cover"
+                          unoptimized={true}
+                        />
+                      </div>
                     </div>
-                    <div className="pt-1">
-                      <h4 className="text-xl font-light text-gray-900 mb-1">{item.title}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               {/* Available Dates Section */}

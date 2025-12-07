@@ -56,7 +56,7 @@ export default function AboutPage() {
       <section className="relative pt-32 pb-8 md:pt-40 md:pb-12 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/90 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop"
+            src="/Northeast Dreamz Image Bank/framesbytanmay-WSpzdB7DMjA-unsplash.jpg"
             alt="Northeast India Landscape"
             fill
             className="object-cover"
@@ -123,8 +123,8 @@ export default function AboutPage() {
               className="relative h-96 md:h-[500px] rounded-3xl overflow-hidden premium-shadow-lg"
             >
               <Image
-                src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop"
-                alt="Northeast India Landscape"
+                src="/AboutUs.jpeg"
+                alt="Northeast Dreamz Founders - Our Story"
                 fill
                 className="object-cover"
                 unoptimized={true}
@@ -234,7 +234,7 @@ export default function AboutPage() {
       >
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=1920&h=1080&fit=crop"
+            src="/Northeast Dreamz Image Bank/sukumar-bardoloi-kWjU2ZS53U8-unsplash.jpg"
             alt="Northeast India"
             fill
             className="object-cover"
