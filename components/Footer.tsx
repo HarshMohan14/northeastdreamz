@@ -1,8 +1,16 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-export default function Footer() {
+interface FooterProps {
+  showCTA?: boolean
+}
+
+export default function Footer({ showCTA = false }: FooterProps) {
+  const router = useRouter()
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {
@@ -10,20 +18,61 @@ export default function Footer() {
     }
   }
 
+  const navigateToSection = (hash: string) => {
+    // Use router for smooth client-side navigation
+    router.push(`/${hash}`)
+    // Store hash in sessionStorage for immediate scroll on home page
+    sessionStorage.setItem('scrollToHash', hash)
+  }
+
   return (
     <footer 
-      className="py-16 md:py-20 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/95 text-white relative overflow-hidden"
+      className={`${showCTA ? 'pt-20 md:pt-28' : 'pt-16 md:pt-20'} pb-16 md:pb-20 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary text-white relative overflow-hidden`}
     >
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-10">
         <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop"
+          src="/footer.jpeg"
           alt="Northeast India Landscape"
           fill
           className="object-cover"
+          priority
           unoptimized={true}
         />
       </div>
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* CTA Section - Only shown on About page */}
+        {showCTA && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-20 md:mb-24"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 section-title">
+              Ready to Start Your Journey?
+            </h2>
+            <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
+              Let us craft an unforgettable experience for you in the mystical lands of Northeast India. 
+              Get in touch and let's plan your dream adventure together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => navigateToSection('#inquiry')}
+                className="px-8 py-4 bg-brand-accent text-white font-semibold rounded-lg premium-button hover:bg-brand-accent/90 transition-all duration-300 premium-shadow-lg hover:scale-105"
+              >
+                Get In Touch
+              </button>
+              <button
+                onClick={() => navigateToSection('#packages')}
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+              >
+                View Packages
+              </button>
+            </div>
+          </motion.div>
+        )}
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12">
           <div>
             <h4 className="text-xl font-bold mb-5 section-title text-white">Northeast Dreamz</h4>
