@@ -21,6 +21,8 @@ export interface Package {
   image: string
   itinerary: ItineraryItem[]
   dates?: string
+  gallery?: string[]
+  availableDates?: { month: string; dates: number[] }[]
 }
 
 export const MOCK_REVIEWS: Review[] = [
@@ -93,6 +95,18 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer back to Guwahati Airport.',
       },
     ],
+    gallery: [
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop',
+    ],
+    availableDates: [
+      { month: 'January 2025', dates: [5, 12, 19, 26] },
+      { month: 'February 2025', dates: [2, 9, 16, 23] },
+      { month: 'March 2025', dates: [1, 8, 15, 22, 29] },
+      { month: 'April 2025', dates: [5, 12, 19, 26] },
+    ],
   },
   {
     id: 2,
@@ -123,6 +137,18 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer to Guwahati.',
       },
     ],
+    gallery: [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+    ],
+    availableDates: [
+      { month: 'January 2025', dates: [10, 17, 24, 31] },
+      { month: 'February 2025', dates: [7, 14, 21, 28] },
+      { month: 'March 2025', dates: [7, 14, 21, 28] },
+      { month: 'April 2025', dates: [4, 11, 18, 25] },
+    ],
   },
   {
     id: 3,
@@ -147,6 +173,16 @@ export const PACKAGE_DATA: Package[] = [
         title: 'Departure',
         desc: 'Transfer to airport.',
       },
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop',
+    ],
+    availableDates: [
+      { month: 'January 2025', dates: [3, 10, 17, 24, 31] },
+      { month: 'February 2025', dates: [7, 14, 21, 28] },
+      { month: 'March 2025', dates: [7, 14, 21, 28] },
     ],
   },
   {
@@ -177,6 +213,18 @@ export const PACKAGE_DATA: Package[] = [
         title: 'Departure',
         desc: 'Transfer to Jorhat airport.',
       },
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
+    ],
+    availableDates: [
+      { month: 'January 2025', dates: [8, 15, 22, 29] },
+      { month: 'February 2025', dates: [5, 12, 19, 26] },
+      { month: 'March 2025', dates: [5, 12, 19, 26] },
+      { month: 'April 2025', dates: [2, 9, 16, 23, 30] },
     ],
   },
   {
@@ -317,6 +365,18 @@ export const PACKAGE_DATA: Package[] = [
         title: 'Departure',
         desc: 'Transfer to Bagdogra Airport (IXB).',
       },
+    ],
+    gallery: [
+      'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=800&h=600&fit=crop',
+    ],
+    availableDates: [
+      { month: 'January 2025', dates: [6, 13, 20, 27] },
+      { month: 'February 2025', dates: [3, 10, 17, 24] },
+      { month: 'March 2025', dates: [3, 10, 17, 24, 31] },
+      { month: 'April 2025', dates: [7, 14, 21, 28] },
     ],
   },
   {

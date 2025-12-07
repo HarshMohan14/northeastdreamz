@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { X, CalendarCheck } from 'lucide-react'
+import { X, CalendarCheck, Download, Calendar, Image as ImageIcon } from 'lucide-react'
 import Image from 'next/image'
 import { Package } from '@/lib/data'
 
@@ -15,6 +15,7 @@ interface ItineraryModalProps {
 
 export default function ItineraryModal({ packageData, isOpen, onClose, onBookingClick }: ItineraryModalProps) {
   const [imageError, setImageError] = useState(false)
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null)
 
   if (!packageData) return null
 
@@ -36,6 +37,47 @@ export default function ItineraryModal({ packageData, isOpen, onClose, onBooking
     }
     return images[state] || 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop'
   }
+
+  const downloadItinerary = () => {
+    const content = `
+DETAILED ITINERARY - ${packageData.name}
+${'='.repeat(60)}
+
+Package: ${packageData.name}
+State: ${packageData.state}
+Duration: ${packageData.days} Days
+Cost: ${packageData.cost}
+
+${'='.repeat(60)}
+ITINERARY
+${'='.repeat(60)}
+
+${packageData.itinerary.map(item => `
+Day ${item.day}: ${item.title}
+${item.desc}
+`).join('\n')}
+
+${'='.repeat(60)}
+For bookings and inquiries, please contact Northeast Dreamz.
+${'='.repeat(60)}
+    `.trim()
+
+    const blob = new Blob([content], { type: 'text/plain' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${packageData.name.replace(/\s+/g, '_')}_Itinerary.txt`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  const galleryImages = packageData.gallery || [
+    getNortheastPlaceholder(packageData.state),
+    'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+    'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=800&h=600&fit=crop',
+  ]
 
   return (
     <AnimatePresence>
@@ -103,9 +145,90 @@ export default function ItineraryModal({ packageData, isOpen, onClose, onBooking
                   </div>
                 ))}
               </div>
+
+              {/* Available Dates Section */}
+              {packageData.availableDates && packageData.availableDates.length > 0 && (
+                <div className="mt-12">
+                  <h4 className="text-2xl font-bold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                    <Calendar className="w-6 h-6" />
+                    <span>Available Dates</span>
+                  </h4>
+                  <div className="space-y-4">
+                    {packageData.availableDates.map((monthData, idx) => (
+                      <div key={idx} className="bg-gray-50 rounded-xl p-4">
+                        <button
+                          onClick={() => setSelectedMonth(selectedMonth === monthData.month ? null : monthData.month)}
+                          className="w-full flex items-center justify-between text-left"
+                        >
+                          <h5 className="text-lg font-semibold text-gray-900">{monthData.month}</h5>
+                          <span className="text-sm text-brand-primary">
+                            {selectedMonth === monthData.month ? '▼' : '▶'}
+                          </span>
+                        </button>
+                        {selectedMonth === monthData.month && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-4 pt-4 border-t border-gray-200"
+                          >
+                            <div className="flex flex-wrap gap-2">
+                              {monthData.dates.map((date) => (
+                                <span
+                                  key={date}
+                                  className="px-4 py-2 bg-brand-primary text-white rounded-lg font-medium text-sm"
+                                >
+                                  {date}
+                                </span>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Gallery Section */}
+              {galleryImages && galleryImages.length > 0 && (
+                <div className="mt-12">
+                  <h4 className="text-2xl font-bold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                    <ImageIcon className="w-6 h-6" />
+                    <span>Gallery</span>
+                  </h4>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {galleryImages.map((img, idx) => (
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: idx * 0.1 }}
+                        className="relative w-full h-48 rounded-xl overflow-hidden bg-gray-100"
+                      >
+                        <Image
+                          src={img}
+                          alt={`${packageData.name} - Photo ${idx + 1}`}
+                          fill
+                          className="object-cover hover:scale-110 transition-transform duration-300"
+                          unoptimized={true}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            <div className="p-8 border-t border-brand-secondary">
+            <div className="p-8 border-t border-brand-secondary space-y-4">
+              <button
+                onClick={downloadItinerary}
+                className="w-full py-3 bg-brand-primary text-white font-bold text-lg rounded-xl premium-button flex items-center justify-center space-x-2 hover:bg-opacity-90 transition"
+              >
+                <Download className="w-5 h-5" />
+                <span>Download Detailed Itinerary</span>
+              </button>
               <button
                 onClick={onBookingClick}
                 className="w-full py-3 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button flex items-center justify-center space-x-2"
