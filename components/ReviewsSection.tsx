@@ -166,7 +166,7 @@ export default function ReviewsSection() {
     <section 
       ref={sectionRef}
       id="reviews" 
-      className="py-12 md:py-16 bg-gradient-to-b from-white via-brand-secondary/10 to-white relative overflow-hidden"
+      className="py-8 md:py-12 bg-gradient-to-b from-white via-brand-secondary/10 to-white relative overflow-hidden"
     >
       <motion.div 
         style={{ y, opacity }}
@@ -177,13 +177,13 @@ export default function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-10 font-light"
+          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-8 font-light"
         >
           Hear From Our Happy Travelers
         </motion.h2>
 
         {/* Individual Review Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {MOCK_REVIEWS.map((review, idx) => {
             const photos = getReviewPhotos(review)
             const hasMedia = photos.length > 0 || review.video

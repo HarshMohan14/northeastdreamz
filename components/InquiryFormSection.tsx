@@ -66,7 +66,7 @@ export default function InquiryFormSection() {
     <section 
       ref={sectionRef}
       id="inquiry"
-      className="py-12 md:py-16 bg-gradient-to-b from-white via-brand-primary/5 to-white relative overflow-hidden"
+      className="py-8 md:py-12 bg-gradient-to-b from-white via-brand-primary/5 to-white relative overflow-hidden"
     >
       <motion.div 
         style={{ y, opacity }}
@@ -77,7 +77,7 @@ export default function InquiryFormSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
           <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-bold">
             Get In Touch

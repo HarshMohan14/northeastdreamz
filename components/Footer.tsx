@@ -27,7 +27,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
 
   return (
     <footer 
-      className={`${showCTA ? 'pt-12 md:pt-16' : 'pt-12 md:pt-16'} pb-12 md:pb-16 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary text-white relative overflow-hidden`}
+      className={`${showCTA ? 'pt-8 md:pt-12' : 'pt-8 md:pt-12'} pb-8 md:pb-12 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary text-white relative overflow-hidden`}
     >
       <div className="absolute inset-0 opacity-10">
         <Image
@@ -47,7 +47,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center mb-12 md:mb-16"
+            className="max-w-4xl mx-auto text-center mb-8 md:mb-10"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 section-title">
               Ready to Start Your Journey?

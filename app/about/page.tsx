@@ -53,7 +53,7 @@ export default function AboutPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 md:pt-40 md:pb-16 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/90 text-white overflow-hidden">
+      <section className="relative pt-32 pb-8 md:pt-40 md:pb-12 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/90 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <Image
             src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop"
@@ -84,7 +84,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -135,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-white via-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
@@ -182,14 +182,14 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-brand-primary mb-6 section-title">
               What We Stand For
@@ -230,7 +230,7 @@ export default function AboutPage() {
       {/* Stats Section */}
       <section 
         ref={sectionRef}
-        className="py-12 md:py-16 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/90 text-white relative overflow-hidden"
+        className="py-8 md:py-12 bg-gradient-to-b from-brand-primary via-brand-primary to-brand-primary/90 text-white relative overflow-hidden"
       >
         <div className="absolute inset-0 opacity-10">
           <Image
@@ -250,7 +250,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 section-title text-white">
               Our Journey in Numbers
@@ -280,14 +280,14 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10"
+            className="text-center mb-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-brand-primary mb-6 section-title">
               Why Choose Northeast Dreamz?
