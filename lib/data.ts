@@ -4,6 +4,11 @@ export interface Review {
   stars: number
   text: string
   city: string
+  photo?: string // Deprecated: use photos array instead
+  photos?: string[] // Array of photo URLs
+  video?: string
+  shortText?: string
+  date?: string
 }
 
 export interface ItineraryItem {
@@ -31,28 +36,76 @@ export const MOCK_REVIEWS: Review[] = [
     name: 'Anjali M.',
     stars: 5,
     text: 'The Meghalaya trip was flawless! The guide was knowledgeable, and the itinerary felt truly personalized. Northeast Dreamz made my adventure unforgettable.',
+    shortText: 'The Meghalaya trip was flawless! The guide was knowledgeable, and the itinerary felt truly personalized...',
     city: 'Mumbai',
+    photos: [
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&h=600&fit=crop',
+    ],
+    date: '2 months ago',
   },
   {
     id: 2,
     name: 'Ravi K.',
     stars: 5,
     text: 'My Assam wildlife tour exceeded all expectations. Seeing the rhino in Kaziranga was a highlight. Premium service from start to finish.',
+    shortText: 'My Assam wildlife tour exceeded all expectations. Seeing the rhino in Kaziranga was a highlight...',
     city: 'Delhi',
+    photos: [
+      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=600&h=600&fit=crop',
+    ],
+    date: '1 month ago',
   },
   {
     id: 3,
     name: 'Priya S.',
     stars: 5,
     text: "Sikkim's beauty is unmatched, and Northeast Dreamz handled all the logistics perfectly. Highly recommend their bespoke package. Worth every penny.",
+    shortText: "Sikkim's beauty is unmatched, and Northeast Dreamz handled all the logistics perfectly. Highly recommend...",
     city: 'Bengaluru',
+    photos: [
+      'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&h=600&fit=crop',
+    ],
+    date: '3 weeks ago',
   },
   {
     id: 4,
     name: 'David L.',
     stars: 4,
     text: 'Arunachal Pradesh was stunning. The monastic trail was challenging but rewarding. Minor hiccup with accommodation one night, but quickly resolved.',
+    shortText: 'Arunachal Pradesh was stunning. The monastic trail was challenging but rewarding...',
     city: 'Kolkata',
+    photos: [
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop',
+    ],
+    date: '1 week ago',
+  },
+  {
+    id: 5,
+    name: 'Sarah T.',
+    stars: 5,
+    text: 'Absolutely amazing experience! The team at Northeast Dreamz curated the perfect trip for us. Every detail was taken care of, and we felt like VIPs throughout our journey.',
+    shortText: 'Absolutely amazing experience! The team at Northeast Dreamz curated the perfect trip for us...',
+    city: 'Chennai',
+    date: '5 days ago',
+  },
+  {
+    id: 6,
+    name: 'Rajesh P.',
+    stars: 5,
+    text: 'Best travel experience in Northeast India! The local guides were exceptional, and the accommodations were top-notch. Will definitely book again for our next adventure.',
+    shortText: 'Best travel experience in Northeast India! The local guides were exceptional...',
+    city: 'Pune',
+    photos: [
+      'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1511497584788-876760111969?w=600&h=600&fit=crop',
+    ],
+    date: '3 days ago',
   },
 ]
 
