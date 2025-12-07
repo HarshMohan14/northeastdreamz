@@ -118,20 +118,20 @@ ${'='.repeat(60)}
                     onError={() => setImageError(true)}
                   />
                 </div>
-                <h3 className="text-4xl font-bold section-title text-brand-primary mb-2">{packageData.name}</h3>
+                <h3 className="text-4xl font-light section-title text-brand-primary mb-2">{packageData.name}</h3>
                 <p className="text-gray-700 text-lg mb-6">
                   A bespoke {packageData.days}-Day journey in {packageData.state}.
                 </p>
               </div>
 
-              <h4 className="text-2xl font-bold section-title text-brand-primary mt-10 mb-8 border-b border-gray-200 pb-3">
+              <h4 className="text-2xl font-light section-title text-brand-primary mt-10 mb-8 border-b border-gray-200 pb-3">
                 Detailed Itinerary
               </h4>
               <div className="space-y-6">
                 {packageData.itinerary.map((item, index) => (
                   <div key={item.day} className="flex space-x-4">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 flex items-center justify-center bg-brand-primary text-white rounded-full font-semibold flex-shrink-0">
+                      <div className="w-10 h-10 flex items-center justify-center bg-brand-primary text-white rounded-full font-light flex-shrink-0">
                         {item.day}
                       </div>
                       {index < packageData.itinerary.length - 1 && (
@@ -139,7 +139,7 @@ ${'='.repeat(60)}
                       )}
                     </div>
                     <div className="pt-1">
-                      <h4 className="text-xl font-semibold text-gray-900 mb-1">{item.title}</h4>
+                      <h4 className="text-xl font-light text-gray-900 mb-1">{item.title}</h4>
                       <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
@@ -149,7 +149,7 @@ ${'='.repeat(60)}
               {/* Available Dates Section */}
               {packageData.availableDates && packageData.availableDates.length > 0 && (
                 <div className="mt-12">
-                  <h4 className="text-2xl font-bold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                  <h4 className="text-2xl font-light section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
                     <Calendar className="w-6 h-6" />
                     <span>Available Dates</span>
                   </h4>
@@ -160,7 +160,7 @@ ${'='.repeat(60)}
                           onClick={() => setSelectedMonth(selectedMonth === monthData.month ? null : monthData.month)}
                           className="w-full flex items-center justify-between text-left"
                         >
-                          <h5 className="text-lg font-semibold text-gray-900">{monthData.month}</h5>
+                          <h5 className="text-lg font-light text-gray-900">{monthData.month}</h5>
                           <span className="text-sm text-brand-primary">
                             {selectedMonth === monthData.month ? '▼' : '▶'}
                           </span>
@@ -193,7 +193,7 @@ ${'='.repeat(60)}
               {/* Gallery Section */}
               {galleryImages && galleryImages.length > 0 && (
                 <div className="mt-12">
-                  <h4 className="text-2xl font-bold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                  <h4 className="text-2xl font-light section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
                     <ImageIcon className="w-6 h-6" />
                     <span>Gallery</span>
                   </h4>
@@ -224,14 +224,14 @@ ${'='.repeat(60)}
             <div className="p-8 border-t border-brand-secondary space-y-4">
               <button
                 onClick={downloadItinerary}
-                className="w-full py-3 bg-brand-primary text-white font-bold text-lg rounded-xl premium-button flex items-center justify-center space-x-2 hover:bg-opacity-90 transition"
+                className="w-full py-3 bg-brand-primary text-white font-light text-lg rounded-xl premium-button flex items-center justify-center space-x-2 hover:bg-opacity-90 transition"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Detailed Itinerary</span>
               </button>
               <button
                 onClick={onBookingClick}
-                className="w-full py-3 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button flex items-center justify-center space-x-2"
+                className="w-full py-3 bg-brand-accent text-white font-light text-lg rounded-xl premium-button flex items-center justify-center space-x-2"
               >
                 <CalendarCheck className="w-5 h-5" />
                 <span>Book This Dream Trip Now</span>

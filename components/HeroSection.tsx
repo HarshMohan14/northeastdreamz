@@ -59,9 +59,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] section-title mb-6 tracking-tight"
+          className="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] section-title mb-6 tracking-tight"
         >
-          Take the dream trip of your life
+          Come, take your dream trip
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
@@ -80,7 +80,7 @@ export default function HeroSection() {
             e.preventDefault()
             scrollToStates()
           }}
-          className="px-8 py-3.5 bg-brand-accent text-white font-semibold text-base rounded-full premium-button inline-flex items-center space-x-2"
+          className="px-8 py-3.5 bg-brand-accent text-white font-light text-base rounded-full premium-button inline-flex items-center space-x-2"
         >
           <span>Explore Destinations</span>
           <ArrowRight className="w-5 h-5" />

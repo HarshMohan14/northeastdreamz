@@ -255,7 +255,7 @@ export default function ReviewsSection() {
                     {review.shortText && review.shortText !== review.text && (
                       <button
                         onClick={() => toggleReview(review.id)}
-                        className="mt-2 text-brand-primary hover:text-brand-accent text-xs font-semibold flex items-center space-x-1 transition-colors"
+                        className="mt-2 text-brand-primary hover:text-brand-accent text-xs font-light flex items-center space-x-1 transition-colors"
                       >
                         <span>{expandedReviews.has(review.id) ? 'Read less' : 'Read more'}</span>
                         <ChevronDown
@@ -269,7 +269,7 @@ export default function ReviewsSection() {
 
                   {/* Reviewer Info */}
                   <div className="border-t border-gray-200 pt-4 mt-auto">
-                    <p className="font-semibold text-gray-900 text-base mb-1">{review.name}</p>
+                    <p className="font-light text-gray-900 text-base mb-1">{review.name}</p>
                     <div className="flex items-center justify-between">
                       <p className="text-sm text-gray-600">{review.city}</p>
                       {review.date && (
@@ -297,7 +297,7 @@ export default function ReviewsSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-brand-accent text-white font-light text-lg rounded-xl premium-button shadow-lg hover:shadow-xl transition-all"
           >
             <Star className="w-6 h-6 fill-white text-white" />
             <span>View All Google Reviews</span>

@@ -49,7 +49,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center mb-8 md:mb-10"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 section-title">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 section-title">
               Ready to Start Your Journey?
             </h2>
             <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -59,13 +59,13 @@ export default function Footer({ showCTA = false }: FooterProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigateToSection('#inquiry')}
-                className="px-8 py-4 bg-brand-accent text-white font-semibold rounded-lg premium-button hover:bg-brand-accent/90 transition-all duration-300 premium-shadow-lg hover:scale-105"
+                className="px-8 py-4 bg-brand-accent text-white font-light rounded-lg premium-button hover:bg-brand-accent/90 transition-all duration-300 premium-shadow-lg hover:scale-105"
               >
                 Get In Touch
               </button>
               <button
                 onClick={() => navigateToSection('#packages')}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-light rounded-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
               >
                 View Packages
               </button>
@@ -75,14 +75,14 @@ export default function Footer({ showCTA = false }: FooterProps) {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12">
           <div>
-            <h4 className="text-xl font-bold mb-5 section-title text-white">Northeast Dreamz</h4>
+            <h4 className="text-xl font-light mb-5 section-title text-white">Northeast Dreamz</h4>
             <p className="text-sm text-white/80 leading-relaxed font-light">
               Curating the finest bespoke travel experiences in India's hidden gems.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-5 text-white">Quick Links</h4>
+            <h4 className="text-lg font-light mb-5 text-white">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
@@ -144,7 +144,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-5 text-white">Support</h4>
+            <h4 className="text-lg font-light mb-5 text-white">Support</h4>
             <ul className="space-y-3 text-sm">
               <li>
                 <a href="#" className="text-white/70 hover:text-white transition-colors font-light">
@@ -165,7 +165,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-5 text-white">Contact</h4>
+            <h4 className="text-lg font-light mb-5 text-white">Contact</h4>
             <p className="text-sm text-white/80 mb-2 font-light">Email: info@northeastdreamz.com</p>
             <p className="text-sm text-white/80 mb-5 font-light">Phone: +91 99000 00000</p>
             <div className="flex space-x-4">

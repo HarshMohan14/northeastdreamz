@@ -107,7 +107,7 @@ export default function PackagesSection() {
             transition={{ duration: 0.8 }}
             className="text-center mb-6"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-bold">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-light">
               Curated Bespoke Packages
             </h2>
             <motion.p
@@ -121,10 +121,10 @@ export default function PackagesSection() {
               {filteredState ? (
                 <>
                   Discover our curated experiences in{' '}
-                  <span className="font-semibold text-brand-primary">{filteredState}</span>.{' '}
+                  <span className="font-light text-brand-primary">{filteredState}</span>.{' '}
                   <span
                     onClick={() => setFilteredState(null)}
-                    className="text-brand-accent font-medium cursor-pointer hover:text-brand-primary transition-colors"
+                    className="text-brand-accent font-light cursor-pointer hover:text-brand-primary transition-colors"
                   >
                     View All Packages
                   </span>
@@ -175,7 +175,7 @@ export default function PackagesSection() {
 
                         {/* Default: Always show package name */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4 md:p-6 z-10">
-                          <h3 className="text-lg md:text-xl font-bold section-title text-white mb-4">
+                          <h3 className="text-lg md:text-xl font-light section-title text-white mb-4">
                             {pkg.name}
                           </h3>
                           
@@ -185,7 +185,7 @@ export default function PackagesSection() {
                               e.stopPropagation()
                               handleViewItinerary(pkg)
                             }}
-                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-light rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -196,7 +196,7 @@ export default function PackagesSection() {
 
                         {/* Hover: Show impactful description */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6 z-20">
-                          <h3 className="text-lg md:text-xl font-bold section-title text-white mb-2">
+                          <h3 className="text-lg md:text-xl font-light section-title text-white mb-2">
                             {pkg.name}
                           </h3>
                           <p className="text-white/95 text-sm md:text-base font-light leading-relaxed mb-4">
@@ -209,7 +209,7 @@ export default function PackagesSection() {
                               e.stopPropagation()
                               handleViewItinerary(pkg)
                             }}
-                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-light rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -233,7 +233,7 @@ export default function PackagesSection() {
               <p className="text-gray-600 text-lg mb-6">No packages available for this destination yet.</p>
               <button
                 onClick={() => setShowBooking(true)}
-                className="px-8 py-3 bg-brand-accent text-white rounded-full font-semibold premium-button"
+                className="px-8 py-3 bg-brand-accent text-white rounded-full font-light premium-button"
               >
                 Contact Us for Custom Package
               </button>

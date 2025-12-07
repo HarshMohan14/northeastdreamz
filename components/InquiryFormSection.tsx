@@ -79,7 +79,7 @@ export default function InquiryFormSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-bold">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-light">
             Get In Touch
           </h2>
           <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -97,7 +97,7 @@ export default function InquiryFormSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold text-brand-primary mb-6 section-title">
+              <h3 className="text-2xl font-light text-brand-primary mb-6 section-title">
                 Contact Information
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">
@@ -111,7 +111,7 @@ export default function InquiryFormSection() {
                   <Mail className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-brand-primary mb-1">Email</h4>
+                  <h4 className="font-light text-brand-primary mb-1">Email</h4>
                   <a href="mailto:info@northeastdreamz.com" className="text-gray-600 hover:text-brand-primary transition-colors">
                     info@northeastdreamz.com
                   </a>
@@ -123,7 +123,7 @@ export default function InquiryFormSection() {
                   <Phone className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-brand-primary mb-1">Phone</h4>
+                  <h4 className="font-light text-brand-primary mb-1">Phone</h4>
                   <a href="tel:+919900000000" className="text-gray-600 hover:text-brand-primary transition-colors">
                     +91 99000 00000
                   </a>
@@ -135,7 +135,7 @@ export default function InquiryFormSection() {
                   <MapPin className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-brand-primary mb-1">Location</h4>
+                  <h4 className="font-light text-brand-primary mb-1">Location</h4>
                   <p className="text-gray-600">
                     Northeast India
                   </p>
@@ -155,7 +155,7 @@ export default function InquiryFormSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="name" className="block text-sm font-light text-brand-primary mb-2">
                     Full Name *
                   </label>
                   <input
@@ -171,7 +171,7 @@ export default function InquiryFormSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="email" className="block text-sm font-light text-brand-primary mb-2">
                     Email *
                   </label>
                   <input
@@ -189,7 +189,7 @@ export default function InquiryFormSection() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="phone" className="block text-sm font-light text-brand-primary mb-2">
                     Phone *
                   </label>
                   <input
@@ -205,7 +205,7 @@ export default function InquiryFormSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="destination" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="destination" className="block text-sm font-light text-brand-primary mb-2">
                     Destination
                   </label>
                   <select
@@ -227,7 +227,7 @@ export default function InquiryFormSection() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="travelDate" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="travelDate" className="block text-sm font-light text-brand-primary mb-2">
                     Travel Date
                   </label>
                   <input
@@ -241,7 +241,7 @@ export default function InquiryFormSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="travelers" className="block text-sm font-semibold text-brand-primary mb-2">
+                  <label htmlFor="travelers" className="block text-sm font-light text-brand-primary mb-2">
                     Number of Travelers
                   </label>
                   <input
@@ -258,7 +258,7 @@ export default function InquiryFormSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-brand-primary mb-2">
+                <label htmlFor="message" className="block text-sm font-light text-brand-primary mb-2">
                   Message *
                 </label>
                 <textarea
@@ -288,7 +288,7 @@ export default function InquiryFormSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed premium-shadow-lg hover:premium-shadow-2xl"
+                className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-light py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed premium-shadow-lg hover:premium-shadow-2xl"
               >
                 {isSubmitting ? (
                   <>

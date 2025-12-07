@@ -62,7 +62,7 @@ export default function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-6 font-bold"
+            className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-6 font-light"
           >
             Traveler's Journal
           </motion.h2>
@@ -93,10 +93,10 @@ export default function BlogSection() {
                   />
                 </motion.div>
                 <div className="p-8">
-                  <span className="text-xs font-semibold uppercase text-brand-accent mb-4 block tracking-wider">
+                  <span className="text-xs font-light uppercase text-brand-accent mb-4 block tracking-wider">
                     {post.state}
                   </span>
-                  <h3 className="text-2xl font-bold section-title text-gray-900 mb-4">{post.title}</h3>
+                  <h3 className="text-2xl font-light section-title text-gray-900 mb-4">{post.title}</h3>
                   <p className="text-gray-600 text-base mb-6 leading-relaxed">{post.description}</p>
                   <motion.a
                     whileHover={{ x: 5 }}
@@ -108,7 +108,7 @@ export default function BlogSection() {
                         element.scrollIntoView({ behavior: 'smooth' })
                       }
                     }}
-                    className="text-brand-primary font-semibold hover:text-brand-accent transition-colors inline-flex items-center space-x-2"
+                    className="text-brand-primary font-light hover:text-brand-accent transition-colors inline-flex items-center space-x-2"
                   >
                     <span>Read More</span>
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +131,7 @@ export default function BlogSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowBooking(true)}
-              className="px-12 py-4 bg-brand-accent text-white font-semibold text-lg rounded-full premium-button"
+              className="px-12 py-4 bg-brand-accent text-white font-light text-lg rounded-full premium-button"
             >
               Plan My Trip Now
             </motion.button>

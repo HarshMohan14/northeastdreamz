@@ -95,14 +95,14 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 <X className="w-6 h-6" />
               </button>
 
-              <h3 className="text-3xl font-bold text-brand-primary mb-2 section-title">
+              <h3 className="text-3xl font-light text-brand-primary mb-2 section-title">
                 {packageName.includes(':') ? `Book: ${packageName.split(': ')[1]}` : 'Plan Your Dream Trip'}
               </h3>
               <p className="text-gray-600 mb-6">We'll reach out to finalize your bespoke journey.</p>
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="name" className="block text-sm font-light text-gray-700 mb-1">
                     Your Full Name
                   </label>
                   <input
@@ -117,7 +117,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="email" className="block text-sm font-light text-gray-700 mb-1">
                     Email Address
                   </label>
                   <input
@@ -132,7 +132,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="phone" className="block text-sm font-light text-gray-700 mb-1">
                     Phone Number (For call-back)
                   </label>
                   <input
@@ -148,7 +148,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="plannedVisit" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="plannedVisit" className="block text-sm font-light text-gray-700 mb-1">
                     When do you plan to visit?
                   </label>
                   <input
@@ -162,7 +162,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 </div>
 
                 <div className="mb-4">
-                  <label htmlFor="groupType" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="groupType" className="block text-sm font-light text-gray-700 mb-1">
                     Travel Group Type
                   </label>
                   <select
@@ -187,14 +187,14 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                       onChange={(e) => setFormData({ ...formData, needBookingHelp: e.target.checked })}
                       className="w-5 h-5 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
                     />
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-light text-gray-700">
                       Would you like us to help make bookings?
                     </span>
                   </label>
                 </div>
 
                 <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-light text-gray-700 mb-3">
                     What interests you most? (Select all that apply)
                   </label>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -222,7 +222,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button hover:bg-opacity-90 disabled:opacity-50"
+                  className="w-full py-3 bg-brand-accent text-white font-light text-lg rounded-xl premium-button hover:bg-opacity-90 disabled:opacity-50"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit & Request Call'}
                 </button>
@@ -321,7 +321,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.4 }}
-                    className="text-2xl font-bold text-brand-primary mb-3 section-title"
+                    className="text-2xl font-light text-brand-primary mb-3 section-title"
                   >
                     Thank you for submitting your enquiry,
                   </motion.h3>
@@ -344,7 +344,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     setShowSuccessDialog(false)
                     onClose()
                   }}
-                  className="w-full py-3 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button hover:bg-opacity-90 transition-all"
+                  className="w-full py-3 bg-brand-accent text-white font-light text-lg rounded-xl premium-button hover:bg-opacity-90 transition-all"
                 >
                   Close
                 </motion.button>
