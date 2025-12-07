@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
@@ -11,44 +12,77 @@ interface NavigationProps {
 
 export default function Navigation({ onBookingClick }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   const navLinks = [
     { href: '#states', label: 'Destinations' },
     { href: '#packages', label: 'Packages' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#blog', label: 'Blog' },
+    { href: '/about', label: 'About Us' },
   ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (href.startsWith('/')) {
+      // Handle page navigation with router
+      router.push(href)
+      return
     }
+    
+    // If we're on a different page (not home), navigate to home with hash
+    if (pathname !== '/') {
+      router.push(`/${href}`)
+      // Use a more reliable method to scroll after navigation
+      // Store the hash in sessionStorage to trigger scroll on home page
+      sessionStorage.setItem('scrollToHash', href)
+      return
+    }
+    
+    // If we're on the home page, scroll to the section immediately
+    const scrollToElement = () => {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        sessionStorage.removeItem('scrollToHash')
+      } else {
+        // Retry if element not found yet
+        requestAnimationFrame(scrollToElement)
+      }
+    }
+    scrollToElement()
     setMobileMenuOpen(false)
   }
 
   const [isScrolled, setIsScrolled] = useState(false)
+  
+  // Show scrolled style when user has scrolled down
+  const shouldShowScrolledStyle = isScrolled
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+    
+    // Set initial state based on scroll position
+    setIsScrolled(window.scrollY > 50)
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [pathname])
 
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
+        shouldShowScrolledStyle 
           ? 'bg-white/98 backdrop-blur-md border-b border-gray-100 shadow-sm' 
           : 'bg-transparent'
       }`}>
         <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-5 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
+          <a href="/" className="flex items-center space-x-3">
             <div className="relative h-12 w-auto">
               <Image
-                src={isScrolled ? '/Logo - green.png' : '/lol white.png'}
+                src={shouldShowScrolledStyle ? '/Logo - green.png' : '/lol white.png'}
                 alt="Northeast Dreamz Logo"
                 width={150}
                 height={48}
@@ -57,7 +91,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
                 priority
               />
             </div>
-          </div>
+          </a>
 
           <div className="hidden md:flex space-x-8 text-sm font-medium">
             {navLinks.map((link) => (
@@ -65,11 +99,13 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => {
-                  e.preventDefault()
-                  scrollToSection(link.href)
+                  if (link.href.startsWith('#')) {
+                    e.preventDefault()
+                    scrollToSection(link.href)
+                  }
                 }}
                 className={`transition-colors duration-200 ${
-                  isScrolled 
+                  shouldShowScrolledStyle 
                     ? 'text-gray-700 hover:text-brand-primary' 
                     : 'text-white/90 hover:text-white'
                 }`}
@@ -82,7 +118,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
           <button
             onClick={onBookingClick}
             className={`hidden md:block px-6 py-2.5 text-sm font-semibold rounded-full premium-button transition-all ${
-              isScrolled
+              shouldShowScrolledStyle
                 ? 'bg-brand-accent text-white'
                 : 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
             }`}
@@ -93,7 +129,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`md:hidden transition-colors ${
-              isScrolled ? 'text-brand-primary' : 'text-white'
+              shouldShowScrolledStyle ? 'text-brand-primary' : 'text-white'
             }`}
             aria-label="Toggle menu"
           >
@@ -121,7 +157,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-8">
-                <div className="relative h-10 w-auto">
+                <a href="/" className="relative h-10 w-auto">
                   <Image
                     src="/Logo - green.png"
                     alt="Northeast Dreamz Logo"
@@ -130,7 +166,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
                     className="h-10 w-auto object-contain"
                     unoptimized={true}
                   />
-                </div>
+                </a>
                 <button
                   className="text-brand-primary"
                   onClick={() => setMobileMenuOpen(false)}
@@ -145,8 +181,10 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(link.href)
+                      if (link.href.startsWith('#')) {
+                        e.preventDefault()
+                        scrollToSection(link.href)
+                      }
                     }}
                     className="text-gray-800 hover:text-brand-primary transition-colors duration-200 border-b border-gray-100 pb-3"
                   >

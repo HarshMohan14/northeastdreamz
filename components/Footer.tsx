@@ -76,6 +76,14 @@ export default function Footer() {
                   Blog
                 </a>
               </li>
+              <li>
+                <a
+                  href="/about"
+                  className="text-gray-600 hover:text-brand-primary transition-colors font-light"
+                >
+                  About Us
+                </a>
+              </li>
             </ul>
           </div>
 

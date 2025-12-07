@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import HeroSection from '@/components/HeroSection'
 import Navigation from '@/components/Navigation'
 import ServicesSection from '@/components/ServicesSection'
@@ -24,6 +24,47 @@ export default function Home() {
     }
     setShowBooking(true)
   }
+
+  // Handle hash navigation when page loads or hash changes
+  useEffect(() => {
+    const scrollToHash = () => {
+      // Check sessionStorage first (set by Navigation component)
+      const storedHash = sessionStorage.getItem('scrollToHash')
+      const hash = storedHash || window.location.hash
+      
+      if (hash) {
+        // Try to scroll immediately with aggressive retry
+        const attemptScroll = (retries = 0) => {
+          const element = document.querySelector(hash)
+          if (element) {
+            // Scroll immediately when element is found
+            element.scrollIntoView({ behavior: 'smooth' })
+            if (storedHash) {
+              sessionStorage.removeItem('scrollToHash')
+            }
+          } else if (retries < 30) {
+            // Retry very quickly (up to 30 attempts, ~150ms total)
+            requestAnimationFrame(() => attemptScroll(retries + 1))
+          }
+        }
+        
+        // Start immediately on next frame
+        requestAnimationFrame(attemptScroll)
+      }
+    }
+
+    // Try immediately, then also on next tick
+    scrollToHash()
+    const timeoutId = setTimeout(scrollToHash, 10)
+
+    // Handle hash changes
+    window.addEventListener('hashchange', scrollToHash)
+    
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('hashchange', scrollToHash)
+    }
+  }, [])
 
   return (
     <main className="min-h-screen">
