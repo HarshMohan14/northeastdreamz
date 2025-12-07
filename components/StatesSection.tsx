@@ -3,7 +3,16 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { CloudRain, Coffee, Mountain, Snowflake } from 'lucide-react'
+import Image from 'next/image'
 import { STATES } from '@/lib/data'
+
+// Background images for each state
+const stateImages: Record<string, string> = {
+  'Meghalaya': 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
+  'Assam': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
+  'Arunachal Pradesh': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+  'Sikkim': 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+}
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   'cloud-rain': CloudRain,
@@ -94,17 +103,33 @@ export default function StatesSection({ onStateClick }: StatesSectionProps) {
                 <motion.div
                   whileHover={{ scale: 1.05, y: -10 }}
                   transition={{ type: 'spring', stiffness: 300 }}
-                  className="p-8 rounded-3xl bg-white hover:bg-gradient-to-br hover:from-brand-primary/5 hover:to-brand-secondary/10 transition-all duration-300 border-2 border-gray-100 hover:border-brand-primary/30 premium-shadow-lg"
+                  className="relative p-8 rounded-3xl overflow-hidden transition-all duration-300 border-2 border-white/20 hover:border-white/40 premium-shadow-lg h-full min-h-[280px]"
                 >
-                  <motion.div
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                    className="w-24 h-24 mx-auto bg-gradient-to-br from-brand-primary/10 to-brand-secondary/20 rounded-full flex items-center justify-center mb-6 border-2 border-brand-primary/30 premium-shadow"
-                  >
-                    <IconComponent className="w-12 h-12 text-brand-primary" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold text-brand-primary mt-4 mb-3">{state.name}</h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">{state.description}</p>
+                  {/* Background Image */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={stateImages[state.name] || stateImages['Meghalaya']}
+                      alt={state.name}
+                      fill
+                      className="object-cover"
+                      unoptimized={true}
+                    />
+                    {/* Dark overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col items-center text-center h-full">
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                      className="w-24 h-24 mx-auto bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mb-6 border-2 border-white/40 premium-shadow"
+                    >
+                      <IconComponent className="w-12 h-12 text-white" />
+                    </motion.div>
+                    <h3 className="text-xl font-bold text-white mt-4 mb-3">{state.name}</h3>
+                    <p className="text-sm text-white/90 leading-relaxed">{state.description}</p>
+                  </div>
                 </motion.div>
               </motion.div>
             )
