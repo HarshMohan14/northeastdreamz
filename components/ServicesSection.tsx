@@ -21,16 +21,8 @@ const services = [
     description: 'Food explorations, tribal cultures, riverside picnics, handcrafted workshops, and festival immersions.',
   },
   {
-    title: 'Nature & Adventure Trails',
-    description: 'Living root bridges, forests, lakes, treks, caves, river activities and wildlife encounters.',
-  },
-  {
     title: 'Custom Travel Planning',
     description: 'Fully personalised itineraries for families, couples, friends and special occasions.',
-  },
-  {
-    title: 'Full-Time Assistance',
-    description: 'Our team stays connected with you throughout your journey — guiding, supporting and making sure you\'re always at ease.',
   },
 ]
 
