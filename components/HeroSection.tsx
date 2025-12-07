@@ -1,39 +1,22 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [scrollY, setScrollY] = useState(0)
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start']
   })
 
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // Autoplay was prevented, which is fine
-      })
-    }
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const scrollToStates = () => {
     const element = document.querySelector('#states')
@@ -49,32 +32,18 @@ export default function HeroSection() {
       id="home"
     >
       <motion.div
-        style={{ y: videoY, scale }}
+        style={{ y: imageY, scale }}
         className="absolute inset-0 w-full h-full"
       >
-        <video
-          ref={videoRef}
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop"
-          onError={(e) => {
-            const video = e.target as HTMLVideoElement
-            video.style.display = 'none'
-          }}
-        >
-          <source
-            src="https://videos.pexels.com/video-files/1448735/1448735-hd_1920_1080_25fps.mp4"
-            type="video/mp4"
-          />
-          <source
-            src="https://videos.pexels.com/video-files/2491284/2491284-hd_1920_1080_30fps.mp4"
-            type="video/mp4"
-          />
-          Your browser does not support the video tag.
-        </video>
+        <Image
+          src="/main.jpeg"
+          alt="Northeast India Landscape"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+          unoptimized={true}
+        />
       </motion.div>
 
       <motion.div 
