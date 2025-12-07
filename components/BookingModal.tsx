@@ -17,10 +17,26 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
     name: '',
     email: '',
     phone: '',
+    plannedVisit: '',
+    groupType: '',
+    needBookingHelp: false,
+    preferences: [] as string[],
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showNotification, setShowNotification] = useState(false)
   const [notificationMessage, setNotificationMessage] = useState('')
+
+  const groupTypes = ['Solo Traveler', 'Couple', 'Family', 'Friends Group', 'Corporate Group', 'Other']
+  const preferences = ['Adventure', 'Hiking', 'Nature & Wildlife', 'Culture & Heritage', 'Food & Cuisine', 'Photography', 'Relaxation', 'Festivals & Events']
+
+  const handlePreferenceToggle = (pref: string) => {
+    setFormData(prev => ({
+      ...prev,
+      preferences: prev.preferences.includes(pref)
+        ? prev.preferences.filter(p => p !== pref)
+        : [...prev.preferences, pref]
+    }))
+  }
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
@@ -35,7 +51,15 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
 
       setNotificationMessage(`Interest recorded for ${packageName}! We'll call you at ${formData.phone} shortly.`)
       setShowNotification(true)
-      setFormData({ name: '', email: '', phone: '' })
+      setFormData({ 
+        name: '', 
+        email: '', 
+        phone: '', 
+        plannedVisit: '', 
+        groupType: '', 
+        needBookingHelp: false, 
+        preferences: [] 
+      })
       setTimeout(() => {
         setShowNotification(false)
         onClose()
@@ -67,7 +91,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl w-full max-w-md premium-shadow-lg relative p-8"
+              className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto premium-shadow-lg relative p-8"
             >
               <button
                 onClick={onClose}
@@ -113,7 +137,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-primary focus:border-brand-primary transition"
                   />
                 </div>
-                <div className="mb-6">
+                <div className="mb-4">
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                     Phone Number (For call-back)
                   </label>
@@ -127,6 +151,78 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     placeholder="+91 98765 43210"
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-primary focus:border-brand-primary transition"
                   />
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="plannedVisit" className="block text-sm font-medium text-gray-700 mb-1">
+                    When do you plan to visit?
+                  </label>
+                  <input
+                    type="month"
+                    id="plannedVisit"
+                    name="plannedVisit"
+                    value={formData.plannedVisit}
+                    onChange={(e) => setFormData({ ...formData, plannedVisit: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-primary focus:border-brand-primary transition"
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="groupType" className="block text-sm font-medium text-gray-700 mb-1">
+                    Travel Group Type
+                  </label>
+                  <select
+                    id="groupType"
+                    name="groupType"
+                    value={formData.groupType}
+                    onChange={(e) => setFormData({ ...formData, groupType: e.target.value })}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-primary focus:border-brand-primary transition"
+                  >
+                    <option value="">Select group type</option>
+                    {groupTypes.map(type => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="mb-4">
+                  <label className="flex items-center space-x-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.needBookingHelp}
+                      onChange={(e) => setFormData({ ...formData, needBookingHelp: e.target.checked })}
+                      className="w-5 h-5 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
+                    />
+                    <span className="text-sm font-medium text-gray-700">
+                      Would you like us to help make bookings?
+                    </span>
+                  </label>
+                </div>
+
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                    What interests you most? (Select all that apply)
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {preferences.map(pref => (
+                      <label
+                        key={pref}
+                        className={`flex items-center space-x-2 p-3 border-2 rounded-lg cursor-pointer transition-all ${
+                          formData.preferences.includes(pref)
+                            ? 'border-brand-primary bg-brand-primary/5'
+                            : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={formData.preferences.includes(pref)}
+                          onChange={() => handlePreferenceToggle(pref)}
+                          className="w-4 h-4 text-brand-primary border-gray-300 rounded focus:ring-brand-primary"
+                        />
+                        <span className="text-sm text-gray-700">{pref}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
 
                 <button

@@ -36,6 +36,10 @@ export interface BookingData {
   phone: string
   packageName: string
   packageDescription: string
+  plannedVisit?: string
+  groupType?: string
+  needBookingHelp?: boolean
+  preferences?: string[]
   timestamp?: string
 }
 
