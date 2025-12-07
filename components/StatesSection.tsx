@@ -8,10 +8,10 @@ import { STATES } from '@/lib/data'
 
 // Background images for each state
 const stateImages: Record<string, string> = {
-  'Meghalaya': 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=800&h=600&fit=crop',
-  'Assam': 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
-  'Arunachal Pradesh': 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
-  'Sikkim': 'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=800&h=600&fit=crop',
+  'Meghalaya': 'https://images.unsplash.com/photo-1686472886489-1d2d7e08ff9c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Assam': 'https://images.unsplash.com/photo-1470087167738-6aa485ff65dc?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Arunachal Pradesh': 'https://images.unsplash.com/photo-1626761627604-f27d98885f4b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'Sikkim': 'https://images.unsplash.com/photo-1613339027986-b94d85708995?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 }
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -115,7 +115,7 @@ export default function StatesSection({ onStateClick }: StatesSectionProps) {
                       unoptimized={true}
                     />
                     {/* Dark overlay for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40" />
                   </div>
                   
                   {/* Content */}
