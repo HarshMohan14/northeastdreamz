@@ -95,7 +95,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 <X className="w-6 h-6" />
               </button>
 
-              <h3 className="text-3xl font-light text-brand-primary mb-2 section-title">
+              <h3 className="text-3xl font-semibold text-brand-primary mb-2 section-title">
                 {packageName.includes(':') ? `Book: ${packageName.split(': ')[1]}` : 'Plan Your Dream Trip'}
               </h3>
               <p className="text-gray-600 mb-6">We'll reach out to finalize your bespoke journey.</p>
@@ -321,7 +321,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.4 }}
-                    className="text-2xl font-light text-brand-primary mb-3 section-title"
+                    className="text-2xl font-semibold text-brand-primary mb-3 section-title"
                   >
                     Thank you for submitting your enquiry,
                   </motion.h3>

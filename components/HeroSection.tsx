@@ -59,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-[1.1] section-title mb-6 tracking-tight"
+          className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] section-title mb-6 tracking-tight"
         >
           Come, take your dream trip
         </motion.h1>

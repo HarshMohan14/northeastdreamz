@@ -107,7 +107,7 @@ export default function PackagesSection() {
             transition={{ duration: 0.8 }}
             className="text-center mb-6"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-light">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-semibold">
               Curated Bespoke Packages
             </h2>
             <motion.p
@@ -175,7 +175,7 @@ export default function PackagesSection() {
 
                         {/* Default: Always show package name */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4 md:p-6 z-10">
-                          <h3 className="text-lg md:text-xl font-light section-title text-white mb-4">
+                          <h3 className="text-lg md:text-xl font-semibold section-title text-white mb-4">
                             {pkg.name}
                           </h3>
                           
@@ -196,7 +196,7 @@ export default function PackagesSection() {
 
                         {/* Hover: Show impactful description */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6 z-20">
-                          <h3 className="text-lg md:text-xl font-light section-title text-white mb-2">
+                          <h3 className="text-lg md:text-xl font-semibold section-title text-white mb-2">
                             {pkg.name}
                           </h3>
                           <p className="text-white/95 text-sm md:text-base font-light leading-relaxed mb-4">

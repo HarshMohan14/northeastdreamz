@@ -66,7 +66,7 @@ export default function StatesSection({ onStateClick }: StatesSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-light"
+          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-semibold"
         >
           The Mystical 4 States
         </motion.h2>

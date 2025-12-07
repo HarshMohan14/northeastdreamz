@@ -118,13 +118,13 @@ ${'='.repeat(60)}
                     onError={() => setImageError(true)}
                   />
                 </div>
-                <h3 className="text-4xl font-light section-title text-brand-primary mb-2">{packageData.name}</h3>
+                <h3 className="text-4xl font-semibold section-title text-brand-primary mb-2">{packageData.name}</h3>
                 <p className="text-gray-700 text-lg mb-6">
                   A bespoke {packageData.days}-Day journey in {packageData.state}.
                 </p>
               </div>
 
-              <h4 className="text-2xl font-light section-title text-brand-primary mt-10 mb-8 border-b border-gray-200 pb-3">
+              <h4 className="text-2xl font-semibold section-title text-brand-primary mt-10 mb-8 border-b border-gray-200 pb-3">
                 Detailed Itinerary
               </h4>
               <div className="space-y-6">
@@ -149,7 +149,7 @@ ${'='.repeat(60)}
               {/* Available Dates Section */}
               {packageData.availableDates && packageData.availableDates.length > 0 && (
                 <div className="mt-12">
-                  <h4 className="text-2xl font-light section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                  <h4 className="text-2xl font-semibold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
                     <Calendar className="w-6 h-6" />
                     <span>Available Dates</span>
                   </h4>
@@ -193,7 +193,7 @@ ${'='.repeat(60)}
               {/* Gallery Section */}
               {galleryImages && galleryImages.length > 0 && (
                 <div className="mt-12">
-                  <h4 className="text-2xl font-light section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
+                  <h4 className="text-2xl font-semibold section-title text-brand-primary mb-6 border-b border-gray-200 pb-3 flex items-center space-x-2">
                     <ImageIcon className="w-6 h-6" />
                     <span>Gallery</span>
                   </h4>

@@ -177,7 +177,7 @@ export default function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-8 font-light"
+          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-8 font-semibold"
         >
           Hear From Our Happy Travelers
         </motion.h2>

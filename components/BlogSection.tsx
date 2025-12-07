@@ -62,7 +62,7 @@ export default function BlogSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-6 font-light"
+            className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-6 font-semibold"
           >
             Traveler's Journal
           </motion.h2>
@@ -96,7 +96,7 @@ export default function BlogSection() {
                   <span className="text-xs font-light uppercase text-brand-accent mb-4 block tracking-wider">
                     {post.state}
                   </span>
-                  <h3 className="text-2xl font-light section-title text-gray-900 mb-4">{post.title}</h3>
+                  <h3 className="text-2xl font-semibold section-title text-gray-900 mb-4">{post.title}</h3>
                   <p className="text-gray-600 text-base mb-6 leading-relaxed">{post.description}</p>
                   <motion.a
                     whileHover={{ x: 5 }}

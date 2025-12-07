@@ -49,7 +49,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center mb-8 md:mb-10"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 section-title">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 section-title">
               Ready to Start Your Journey?
             </h2>
             <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -75,7 +75,7 @@ export default function Footer({ showCTA = false }: FooterProps) {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12">
           <div>
-            <h4 className="text-xl font-light mb-5 section-title text-white">Northeast Dreamz</h4>
+            <h4 className="text-xl font-semibold mb-5 section-title text-white">Northeast Dreamz</h4>
             <p className="text-sm text-white/80 leading-relaxed font-light">
               Curating the finest bespoke travel experiences in India's hidden gems.
             </p>

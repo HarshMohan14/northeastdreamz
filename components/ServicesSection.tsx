@@ -53,7 +53,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-8"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-light">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-semibold">
             Our Services
           </h2>
           <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-4">
@@ -84,7 +84,7 @@ export default function ServicesSection() {
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-2 h-2 rounded-full bg-brand-accent mt-2" />
                   <div>
-                    <h3 className="text-xl md:text-2xl font-light text-brand-primary mb-3 section-title">
+                    <h3 className="text-xl md:text-2xl font-semibold text-brand-primary mb-3 section-title">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 text-sm md:text-base leading-relaxed font-light">
