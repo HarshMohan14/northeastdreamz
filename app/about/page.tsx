@@ -68,7 +68,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-6 section-title"
+            className="text-3xl md:text-5xl lg:text-6xl font-semibold mb-6 section-title"
           >
             About Northeast Dreamz
           </motion.h1>
@@ -76,7 +76,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
             Crafting unforgettable journeys through India's most enchanting region
           </motion.p>
@@ -93,7 +93,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-semibold text-brand-primary mb-6 section-title">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-brand-primary mb-6 section-title">
                 Our Story
               </h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
@@ -149,9 +149,9 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-full flex items-center justify-center">
                   <Compass className="w-8 h-8 text-brand-primary" />
                 </div>
-                <h3 className="text-3xl font-semibold text-brand-primary section-title">Our Mission</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-brand-primary section-title">Our Mission</h3>
               </div>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                 To unlock the hidden treasures of Northeast India for travelers worldwide, creating authentic, 
                 immersive experiences that celebrate the region's natural beauty, rich cultures, and warm hospitality. 
                 We strive to be the bridge between curious travelers and the magical world of the Northeast.
@@ -169,9 +169,9 @@ export default function AboutPage() {
                 <div className="w-16 h-16 bg-brand-primary/10 rounded-full flex items-center justify-center">
                   <Sparkles className="w-8 h-8 text-brand-primary" />
                 </div>
-                <h3 className="text-3xl font-semibold text-brand-primary section-title">Our Vision</h3>
+                <h3 className="text-2xl md:text-3xl font-semibold text-brand-primary section-title">Our Vision</h3>
               </div>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                 To become the most trusted and sought-after travel partner for Northeast India, known for our 
                 commitment to excellence, authenticity, and creating transformative travel experiences. We envision 
                 a future where the Northeast's beauty and culture are celebrated and preserved through responsible tourism.
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl font-semibold text-brand-primary mb-6 section-title">
               What We Stand For
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
               Our core values guide everything we do, ensuring every journey is meaningful and memorable.
             </p>
           </motion.div>
@@ -214,7 +214,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-brand-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="w-8 h-8 text-brand-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-brand-primary mb-3 section-title">
+                  <h3 className="text-lg md:text-xl font-semibold text-brand-primary mb-3 section-title">
                     {value.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -252,7 +252,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-8"
           >
-            <h2 className="text-4xl md:text-5xl font-semibold mb-6 section-title text-white">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-6 section-title text-white">
               Our Journey in Numbers
             </h2>
           </motion.div>
@@ -267,10 +267,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-5xl md:text-6xl font-light mb-2 text-white">
+                <div className="text-3xl md:text-5xl lg:text-6xl font-light mb-2 text-white">
                   {stat.number}
                 </div>
-                <div className="text-white/90 text-lg">
+                <div className="text-white/90 text-base md:text-lg">
                   {stat.label}
                 </div>
               </motion.div>
@@ -292,7 +292,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl font-semibold text-brand-primary mb-6 section-title">
               Why Choose Northeast Dreamz?
             </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto">
               We go beyond traditional travel planning to create experiences that touch your heart and soul.
             </p>
           </motion.div>
@@ -332,7 +332,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="p-6 rounded-2xl bg-gradient-to-br from-brand-primary/5 to-transparent border border-brand-primary/10 hover:border-brand-primary/30 transition-all duration-300"
               >
-                <h3 className="text-xl font-light text-brand-primary mb-3 section-title">
+                <h3 className="text-lg md:text-xl font-light text-brand-primary mb-3 section-title">
                   {item.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

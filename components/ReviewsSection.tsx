@@ -177,7 +177,7 @@ export default function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary text-center mb-8 font-semibold"
+          className="text-3xl md:text-5xl lg:text-6xl section-title text-brand-primary text-center mb-8 font-semibold"
         >
           Hear From Our Happy Travelers
         </motion.h2>
@@ -297,7 +297,7 @@ export default function ReviewsSection() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-brand-accent text-white font-light text-lg rounded-xl premium-button shadow-lg hover:shadow-xl transition-all"
+            className="inline-flex items-center space-x-3 px-8 py-4 bg-brand-accent text-white font-light text-base md:text-lg rounded-xl premium-button shadow-lg hover:shadow-xl transition-all"
           >
             <Star className="w-6 h-6 fill-white text-white" />
             <span>View All Google Reviews</span>

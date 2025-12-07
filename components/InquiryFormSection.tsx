@@ -79,10 +79,10 @@ export default function InquiryFormSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-semibold">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl section-title text-brand-primary mb-6 font-semibold">
             Get In Touch
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
             Have questions about your dream Northeast journey? We're here to help you plan the perfect adventure.
           </p>
         </motion.div>
@@ -97,7 +97,7 @@ export default function InquiryFormSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-semibold text-brand-primary mb-6 section-title">
+              <h3 className="text-xl md:text-2xl font-semibold text-brand-primary mb-6 section-title">
                 Contact Information
               </h3>
               <p className="text-gray-600 mb-8 leading-relaxed">

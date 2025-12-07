@@ -59,7 +59,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] section-title mb-6 tracking-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-[1.1] section-title mb-6 tracking-tight"
         >
           Come, take your dream trip
         </motion.h1>
@@ -67,7 +67,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/95 font-light tracking-wide mb-12 max-w-2xl"
+          className="text-base md:text-lg lg:text-xl text-white/95 font-light tracking-wide mb-12 max-w-2xl"
         >
           Bespoke, curated experiences in the mystical lands of Northeast India.
         </motion.p>

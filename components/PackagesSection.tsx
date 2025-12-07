@@ -107,7 +107,7 @@ export default function PackagesSection() {
             transition={{ duration: 0.8 }}
             className="text-center mb-6"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-semibold">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl section-title text-brand-primary mb-6 font-semibold">
               Curated Bespoke Packages
             </h2>
             <motion.p
@@ -116,7 +116,7 @@ export default function PackagesSection() {
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.2 }}
               id="package-filter-info"
-              className="text-gray-600 text-xl max-w-3xl mx-auto"
+              className="text-gray-600 text-base md:text-lg lg:text-xl max-w-3xl mx-auto"
             >
               {filteredState ? (
                 <>
@@ -175,7 +175,7 @@ export default function PackagesSection() {
 
                         {/* Default: Always show package name */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-4 md:p-6 z-10">
-                          <h3 className="text-lg md:text-xl font-semibold section-title text-white mb-4">
+                          <h3 className="text-base md:text-lg lg:text-xl font-semibold section-title text-white mb-4">
                             {pkg.name}
                           </h3>
                           
@@ -196,7 +196,7 @@ export default function PackagesSection() {
 
                         {/* Hover: Show impactful description */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6 z-20">
-                          <h3 className="text-lg md:text-xl font-semibold section-title text-white mb-2">
+                          <h3 className="text-base md:text-lg lg:text-xl font-semibold section-title text-white mb-2">
                             {pkg.name}
                           </h3>
                           <p className="text-white/95 text-sm md:text-base font-light leading-relaxed mb-4">
@@ -230,7 +230,7 @@ export default function PackagesSection() {
               viewport={{ once: true }}
               className="text-center py-16"
             >
-              <p className="text-gray-600 text-lg mb-6">No packages available for this destination yet.</p>
+              <p className="text-gray-600 text-base md:text-lg mb-6">No packages available for this destination yet.</p>
               <button
                 onClick={() => setShowBooking(true)}
                 className="px-8 py-3 bg-brand-accent text-white rounded-full font-light premium-button"

@@ -180,7 +180,7 @@ export default function GallerySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-5xl md:text-6xl lg:text-7xl section-title text-white text-center mb-8 font-semibold"
+          className="text-3xl md:text-5xl lg:text-6xl section-title text-white text-center mb-8 font-semibold"
         >
           Gallery of Memories
         </motion.h2>
@@ -189,7 +189,7 @@ export default function GallerySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/90 text-center mb-8 text-xl"
+          className="text-white/90 text-center mb-8 text-base md:text-lg lg:text-xl"
         >
           Real moments captured by our travelers.
         </motion.p>
