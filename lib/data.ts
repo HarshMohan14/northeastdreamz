@@ -110,12 +110,26 @@ export const MOCK_REVIEWS: Review[] = [
 ]
 
 export const CUSTOMER_IMAGES: string[] = [
-  'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400&h=400&fit=crop', // Meghalaya
-  'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=400&fit=crop', // Assam Tea
-  'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=400&fit=crop', // Mountains
-  'https://images.unsplash.com/photo-1464822759844-d150ad6d0e0b?w=400&h=400&fit=crop', // Sikkim
-  'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=400&h=400&fit=crop', // Northeast Landscape
-  'https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=400&fit=crop', // Hills
+  '/Northeast Dreamz Image Bank/all-saints-church-shillong-meghalaya-2-attr-hero.jpg',
+  '/Northeast Dreamz Image Bank/Mawlynnong.webp',
+  '/Northeast Dreamz Image Bank/mawsmai_cave_5856.jpg',
+  '/Northeast Dreamz Image Bank/Reach-dawki-by-road.jpg',
+  '/Northeast Dreamz Image Bank/Shillong cherry blossom meghalaya.jpg',
+  '/Northeast Dreamz Image Bank/sukumar-bardoloi-kWjU2ZS53U8-unsplash.jpg',
+  '/Northeast Dreamz Image Bank/travel-to-mawlynnong-village.jpg',
+  '/Northeast Dreamz Image Bank/framesbytanmay-WSpzdB7DMjA-unsplash.jpg',
+  '/Northeast Dreamz Image Bank/2a0ee7f6fbe1530c0558c44723bcd9e8.jpg',
+  '/Northeast Dreamz Image Bank/3903757b0aa237109f58f1216a0cc3f1.jpg',
+  '/Northeast Dreamz Image Bank/774575a9275321fcf868921a11d02b3e.jpg',
+  '/Northeast Dreamz Image Bank/96772b9688ecc97ced4f7742bead5dd0.jpg',
+  '/Northeast Dreamz Image Bank/b14b6fe9d5fcd60cd4ac1e4bd70bad9c.jpg',
+  '/Northeast Dreamz Image Bank/d6b73400271f9b1a7d7e1e1ebe80c6cf.jpg',
+  '/Northeast Dreamz Image Bank/mg2--06057f.jpg',
+  '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.22 PM.jpeg',
+  '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.23 PM (1).jpeg',
+  '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.23 PM (2).jpeg',
+  '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.23 PM.jpeg',
+  '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.24 PM.jpeg',
 ]
 
 export const PACKAGE_DATA: Package[] = [
