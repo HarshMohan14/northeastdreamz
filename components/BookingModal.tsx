@@ -23,8 +23,8 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
     preferences: [] as string[],
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showNotification, setShowNotification] = useState(false)
-  const [notificationMessage, setNotificationMessage] = useState('')
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false)
+  const [showError, setShowError] = useState(false)
 
   const groupTypes = ['Solo Traveler', 'Couple', 'Family', 'Friends Group', 'Corporate Group', 'Other']
   const preferences = ['Adventure', 'Hiking', 'Nature & Wildlife', 'Culture & Heritage', 'Food & Cuisine', 'Photography', 'Relaxation', 'Festivals & Events']
@@ -49,8 +49,6 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
         packageDescription,
       })
 
-      setNotificationMessage(`Interest recorded for ${packageName}! We'll call you at ${formData.phone} shortly.`)
-      setShowNotification(true)
       setFormData({ 
         name: '', 
         email: '', 
@@ -60,14 +58,10 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
         needBookingHelp: false, 
         preferences: [] 
       })
-      setTimeout(() => {
-        setShowNotification(false)
-        onClose()
-      }, 3000)
+      setShowSuccessDialog(true)
     } catch (error) {
-      setNotificationMessage('Error: Failed to save booking. Please try again.')
-      setShowNotification(true)
-      setTimeout(() => setShowNotification(false), 5000)
+      setShowError(true)
+      setTimeout(() => setShowError(false), 5000)
     } finally {
       setIsSubmitting(false)
     }
@@ -239,16 +233,138 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
       </AnimatePresence>
 
       <AnimatePresence>
-        {showNotification && (
+        {showSuccessDialog && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
+            onClick={() => {
+              setShowSuccessDialog(false)
+              onClose()
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 30 }}
+              transition={{ 
+                duration: 0.4, 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 25 
+              }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-2xl w-full max-w-md premium-shadow-2xl relative p-8"
+            >
+              <div className="text-center">
+                <div className="mb-6">
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ 
+                      scale: 1,
+                    }}
+                    transition={{ 
+                      delay: 0.2,
+                      type: "spring", 
+                      stiffness: 200, 
+                      damping: 15 
+                    }}
+                    className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand-primary/10 flex items-center justify-center relative"
+                  >
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-brand-primary/20"
+                      animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.5, 0, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ 
+                        delay: 0.4,
+                        type: "spring", 
+                        stiffness: 200, 
+                        damping: 15 
+                      }}
+                    >
+                      <svg 
+                        className="w-8 h-8 text-brand-primary" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <motion.path 
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{ 
+                            delay: 0.6,
+                            duration: 0.5,
+                            ease: "easeInOut"
+                          }}
+                          strokeLinecap="round" 
+                          strokeLinejoin="round" 
+                          strokeWidth={3} 
+                          d="M5 13l4 4L19 7" 
+                        />
+                      </svg>
+                    </motion.div>
+                  </motion.div>
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.4 }}
+                    className="text-2xl font-bold text-brand-primary mb-3 section-title"
+                  >
+                    Thank you for submitting your enquiry,
+                  </motion.h3>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 0.4 }}
+                    className="text-gray-700 text-lg leading-relaxed"
+                  >
+                    We will be contacting you to plan your dream trip
+                  </motion.p>
+                </div>
+                <motion.button
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.2, duration: 0.4 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    setShowSuccessDialog(false)
+                    onClose()
+                  }}
+                  className="w-full py-3 bg-brand-accent text-white font-bold text-lg rounded-xl premium-button hover:bg-opacity-90 transition-all"
+                >
+                  Close
+                </motion.button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showError && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 bg-green-600 text-white px-6 py-4 rounded-xl premium-shadow-lg z-[80]"
+            className="fixed bottom-6 right-6 bg-red-600 text-white px-6 py-4 rounded-xl premium-shadow-lg z-[80]"
           >
             <div className="flex items-center space-x-2">
-              <span>{notificationMessage}</span>
+              <span>Error: Failed to save booking. Please try again.</span>
             </div>
           </motion.div>
         )}
