@@ -115,7 +115,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
           >
             <Link
               href="/#blog"
-              className="inline-flex items-center space-x-3 px-6 py-3 bg-brand-primary hover:bg-brand-primary/90 text-white rounded-full premium-button transition-all duration-300 font-light"
+              className="inline-flex items-center space-x-3 px-6 py-3 bg-brand-primary hover:bg-brand-primary/90 text-white rounded-full premium-button transition-all duration-300 font-semibold"
             >
               <ArrowLeft className="w-5 h-5" />
               <span>Back to Traveler's Journal</span>

@@ -59,13 +59,13 @@ export default function Footer({ showCTA = false }: FooterProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => navigateToSection('#inquiry')}
-                className="px-8 py-4 bg-brand-accent text-white font-light rounded-lg premium-button hover:bg-brand-accent/90 transition-all duration-300 premium-shadow-lg hover:scale-105"
+                className="px-8 py-4 bg-brand-accent text-white font-semibold rounded-lg premium-button hover:bg-brand-accent/90 transition-all duration-300 premium-shadow-lg hover:scale-105"
               >
                 Get In Touch
               </button>
               <button
                 onClick={() => navigateToSection('#packages')}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-light rounded-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all duration-300"
               >
                 View Packages
               </button>

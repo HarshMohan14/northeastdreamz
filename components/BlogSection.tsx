@@ -98,7 +98,7 @@ export default function BlogSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowBooking(true)}
-              className="px-12 py-4 bg-brand-accent text-white font-light text-base md:text-lg rounded-full premium-button"
+              className="px-12 py-4 bg-brand-accent text-white font-semibold text-base md:text-lg rounded-full premium-button"
             >
               Plan My Trip Now
             </motion.button>

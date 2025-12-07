@@ -185,7 +185,7 @@ export default function PackagesSection() {
                               e.stopPropagation()
                               handleViewItinerary(pkg)
                             }}
-                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-light rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -209,7 +209,7 @@ export default function PackagesSection() {
                               e.stopPropagation()
                               handleViewItinerary(pkg)
                             }}
-                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-light rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
+                            className="w-full md:w-auto self-start px-[22px] py-[9px] border-2 border-white text-white font-semibold rounded-full backdrop-blur-sm bg-white/10 hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg z-30"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -233,7 +233,7 @@ export default function PackagesSection() {
               <p className="text-gray-600 text-base md:text-lg mb-6">No packages available for this destination yet.</p>
               <button
                 onClick={() => setShowBooking(true)}
-                className="px-8 py-3 bg-brand-accent text-white rounded-full font-light premium-button"
+                className="px-8 py-3 bg-brand-accent text-white rounded-full font-semibold premium-button"
               >
                 Contact Us for Custom Package
               </button>

@@ -117,13 +117,13 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
 
           <button
             onClick={onBookingClick}
-            className={`hidden md:block px-6 py-2.5 text-sm font-light rounded-full premium-button transition-all ${
+            className={`hidden md:block px-6 py-2.5 text-sm font-semibold rounded-full premium-button transition-all ${
               shouldShowScrolledStyle
                 ? 'bg-brand-accent text-white'
                 : 'bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30'
             }`}
           >
-            Get Started
+            Plan My Trip
           </button>
 
           <button
@@ -196,7 +196,7 @@ export default function Navigation({ onBookingClick }: NavigationProps) {
                     onBookingClick?.()
                     setMobileMenuOpen(false)
                   }}
-                  className="mt-6 px-6 py-3 bg-brand-accent text-white text-sm font-light rounded-lg premium-button"
+                  className="mt-6 px-6 py-3 bg-brand-accent text-white text-sm font-semibold rounded-lg premium-button"
                 >
                   Plan Your Dream Trip
                 </button>

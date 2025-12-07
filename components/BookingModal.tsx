@@ -222,7 +222,7 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-brand-accent text-white font-light text-lg rounded-xl premium-button hover:bg-opacity-90 disabled:opacity-50"
+                  className="w-full py-3 bg-brand-accent text-white font-semibold text-lg rounded-xl premium-button hover:bg-opacity-90 disabled:opacity-50"
                 >
                   {isSubmitting ? 'Submitting...' : 'Submit & Request Call'}
                 </button>

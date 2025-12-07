@@ -239,14 +239,14 @@ ${'='.repeat(60)}
             <div className="p-8 border-t border-brand-secondary space-y-4">
               <button
                 onClick={downloadItinerary}
-                className="w-full py-3 bg-brand-primary text-white font-light text-lg rounded-xl premium-button flex items-center justify-center space-x-2 hover:bg-opacity-90 transition"
+                className="w-full py-3 bg-brand-primary text-white font-semibold text-lg rounded-xl premium-button flex items-center justify-center space-x-2 hover:bg-opacity-90 transition"
               >
                 <Download className="w-5 h-5" />
                 <span>Download Detailed Itinerary</span>
               </button>
               <button
                 onClick={onBookingClick}
-                className="w-full py-3 bg-brand-accent text-white font-light text-lg rounded-xl premium-button flex items-center justify-center space-x-2"
+                className="w-full py-3 bg-brand-accent text-white font-semibold text-lg rounded-xl premium-button flex items-center justify-center space-x-2"
               >
                 <CalendarCheck className="w-5 h-5" />
                 <span>Book This Dream Trip Now</span>

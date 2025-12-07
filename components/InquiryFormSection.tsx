@@ -288,7 +288,7 @@ export default function InquiryFormSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-light py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed premium-shadow-lg hover:premium-shadow-2xl"
+                className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed premium-shadow-lg hover:premium-shadow-2xl"
               >
                 {isSubmitting ? (
                   <>

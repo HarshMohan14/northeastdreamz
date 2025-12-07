@@ -80,7 +80,7 @@ export default function HeroSection() {
             e.preventDefault()
             scrollToStates()
           }}
-          className="px-8 py-3.5 bg-brand-accent text-white font-light text-base rounded-full premium-button inline-flex items-center space-x-2"
+          className="px-8 py-3.5 bg-brand-accent text-white font-semibold text-base rounded-full premium-button inline-flex items-center space-x-2"
         >
           <span>Explore Destinations</span>
           <ArrowRight className="w-5 h-5" />
