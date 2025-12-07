@@ -169,7 +169,7 @@ export default function GallerySection() {
   return (
     <section 
       ref={sectionRef}
-      className="py-20 md:py-28 bg-gradient-to-b from-white via-brand-primary to-brand-primary text-white relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-white via-brand-primary to-brand-primary text-white relative overflow-hidden"
     >
       <motion.div 
         style={{ y, opacity }}
@@ -189,7 +189,7 @@ export default function GallerySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white/90 text-center mb-16 text-xl"
+          className="text-white/90 text-center mb-10 text-xl"
         >
           Real moments captured by our travelers.
         </motion.p>

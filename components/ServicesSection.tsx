@@ -40,7 +40,7 @@ export default function ServicesSection() {
     <section 
       ref={sectionRef}
       id="services" 
-      className="py-12 md:py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
     >
       <motion.div 
         style={{ y, opacity }}

@@ -94,7 +94,7 @@ export default function PackagesSection() {
       <section 
         ref={sectionRef}
         id="packages" 
-        className="py-20 md:py-28 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
+        className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
       >
         <motion.div 
           style={{ y, opacity }}
@@ -105,7 +105,7 @@ export default function PackagesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
             <h2 className="text-5xl md:text-6xl lg:text-7xl section-title text-brand-primary mb-6 font-bold">
               Curated Bespoke Packages

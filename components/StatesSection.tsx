@@ -55,7 +55,7 @@ export default function StatesSection({ onStateClick }: StatesSectionProps) {
     <section 
       ref={sectionRef}
       id="states" 
-      className="py-20 md:py-28 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
+      className="py-12 md:py-16 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden"
     >
       <motion.div 
         style={{ y, opacity }}
@@ -75,7 +75,7 @@ export default function StatesSection({ onStateClick }: StatesSectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-gray-600 mb-12 max-w-3xl mx-auto text-xl"
+          className="text-gray-600 mb-8 max-w-3xl mx-auto text-xl"
         >
           Discover the untouched beauty and unique cultures of our four core destinations. Click to see curated packages, or{' '}
           <span
