@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Send, Mail, Phone, MapPin } from 'lucide-react'
+import { submitInquiry } from '@/lib/firebase'
 
 export default function InquiryFormSection() {
   const [formData, setFormData] = useState({
@@ -38,9 +39,18 @@ export default function InquiryFormSection() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    // Simulate form submission (replace with actual API call)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
+      // Submit to Firebase
+      await submitInquiry({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        destination: formData.destination || undefined,
+        travelDate: formData.travelDate || undefined,
+        travelers: formData.travelers || undefined,
+        message: formData.message,
+      })
+      
       setSubmitStatus('success')
       setFormData({
         name: '',
@@ -55,6 +65,7 @@ export default function InquiryFormSection() {
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000)
     } catch (error) {
+      console.error('Error submitting inquiry:', error)
       setSubmitStatus('error')
       setTimeout(() => setSubmitStatus('idle'), 5000)
     } finally {

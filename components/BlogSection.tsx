@@ -1,17 +1,47 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import BookingModal from './BookingModal'
-import { useState } from 'react'
-import { BLOG_POSTS } from '@/lib/data'
+import { BLOG_POSTS, BlogPost } from '@/lib/data'
+import { getBlogs, BlogPostData } from '@/lib/firebase'
 
 export default function BlogSection() {
   const [showBooking, setShowBooking] = useState(false)
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+  const [allBlogs, setAllBlogs] = useState<BlogPost[]>(BLOG_POSTS)
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true)
   const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const loadBlogs = async () => {
+      try {
+        const firebaseBlogs = await getBlogs()
+        // Convert Firebase blogs to BlogPost format
+        const convertedBlogs: BlogPost[] = firebaseBlogs.map((fb, index) => ({
+          id: fb.id || (BLOG_POSTS.length + index + 1),
+          slug: fb.slug,
+          state: fb.state,
+          title: fb.title,
+          description: fb.description,
+          image: fb.image,
+          alt: fb.alt,
+          content: fb.content,
+          date: fb.date,
+          author: fb.author,
+        }))
+        setAllBlogs([...BLOG_POSTS, ...convertedBlogs])
+      } catch (error) {
+        console.error('Error loading blogs:', error)
+        setAllBlogs(BLOG_POSTS) // Fallback to static blogs
+      } finally {
+        setIsLoadingBlogs(false)
+      }
+    }
+    loadBlogs()
+  }, [])
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -43,7 +73,12 @@ export default function BlogSection() {
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-10">
-            {BLOG_POSTS.map((post, index) => (
+            {isLoadingBlogs ? (
+              <div className="col-span-3 text-center py-12 text-gray-600">Loading blogs...</div>
+            ) : allBlogs.length === 0 ? (
+              <div className="col-span-3 text-center py-12 text-gray-600">No blog posts available</div>
+            ) : (
+              allBlogs.map((post, index) => (
               <motion.div
                 key={post.id}
                 initial={{ opacity: 0, y: 100 }}
@@ -84,7 +119,8 @@ export default function BlogSection() {
                   </Link>
                 </div>
               </motion.div>
-            ))}
+              ))
+            )}
           </div>
 
           <motion.div 
