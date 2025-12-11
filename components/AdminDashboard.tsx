@@ -31,18 +31,20 @@ interface Inquiry {
   timestamp?: string
 }
 
+type BlogPostWithFirebaseId = BlogPost & { firebaseId?: string }
+
 export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   const [activeTab, setActiveTab] = useState<'inquiries' | 'blogs'>('inquiries')
   const [inquiries, setInquiries] = useState<Inquiry[]>([])
-  const [blogs, setBlogs] = useState<BlogPost[]>(BLOG_POSTS)
+  const [blogs, setBlogs] = useState<BlogPostWithFirebaseId[]>(BLOG_POSTS as BlogPostWithFirebaseId[])
   const [isLoading, setIsLoading] = useState(true)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedInquiry, setSelectedInquiry] = useState<Inquiry | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [showAddBlogModal, setShowAddBlogModal] = useState(false)
-  const [editingBlog, setEditingBlog] = useState<(BlogPost & { firebaseId?: string }) | null>(null)
-  const [deletingBlog, setDeletingBlog] = useState<(BlogPost & { firebaseId?: string }) | null>(null)
+  const [editingBlog, setEditingBlog] = useState<BlogPostWithFirebaseId | null>(null)
+  const [deletingBlog, setDeletingBlog] = useState<BlogPostWithFirebaseId | null>(null)
   const [newBlog, setNewBlog] = useState<Partial<BlogPost>>({
     title: '',
     slug: '',
@@ -94,7 +96,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
       const firebaseBlogs = await getBlogs()
       // Combine Firebase blogs with static blogs from data.ts
       // Convert Firebase blogs to BlogPost format
-      const convertedBlogs: (BlogPost & { firebaseId?: string })[] = firebaseBlogs.map((fb, index) => ({
+      const convertedBlogs: BlogPostWithFirebaseId[] = firebaseBlogs.map((fb, index) => ({
         id: fb.id || (BLOG_POSTS.length + index + 1),
         slug: fb.slug,
         state: fb.state,
@@ -207,7 +209,7 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
   }
 
   // Handle edit blog
-  const handleEditBlog = (blog: BlogPost & { firebaseId?: string }) => {
+  const handleEditBlog = (blog: BlogPostWithFirebaseId) => {
     // Only allow editing Firebase blogs (not static ones from data.ts)
     if (!blog.firebaseId) {
       toast.error('Static blogs from data.ts cannot be edited. Only blogs created through the admin panel can be edited.')
@@ -809,14 +811,14 @@ export default function AdminDashboard({ onLogout }: AdminDashboardProps) {
                         {blog.firebaseId && (
                           <>
                             <button
-                              onClick={() => handleEditBlog(blog as BlogPost & { firebaseId?: string })}
+                              onClick={() => handleEditBlog(blog)}
                               className="p-2 text-brand-primary hover:bg-brand-primary/10 rounded-lg transition-colors"
                               title="Edit blog"
                             >
                               <Edit className="w-4 h-4 sm:w-5 sm:h-5" />
                             </button>
                             <button
-                              onClick={() => setDeletingBlog(blog as BlogPost & { firebaseId?: string })}
+                              onClick={() => setDeletingBlog(blog)}
                               className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
                               title="Delete blog"
                             >
