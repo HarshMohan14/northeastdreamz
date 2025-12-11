@@ -9,27 +9,56 @@ let db: Firestore | undefined
 export { db }
 
 // Initialize Firebase from environment variables
-const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
-  ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
-  : {}
+let firebaseConfig: Record<string, any> = {}
 
-// Log Firebase initialization status (only in development)
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-  if (Object.keys(firebaseConfig).length > 0) {
-    console.log('✅ Firebase config loaded successfully')
-  } else {
-    console.warn('⚠️ Firebase config not found. Check your .env.local file.')
+try {
+  const configString = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
+  if (configString) {
+    // Handle both stringified JSON and plain JSON
+    firebaseConfig = typeof configString === 'string' 
+      ? JSON.parse(configString) 
+      : configString
+  }
+} catch (error) {
+  console.error('❌ Error parsing Firebase config:', error)
+  if (typeof window !== 'undefined') {
+    console.error('Firebase config value:', process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
   }
 }
 
-if (typeof window !== 'undefined' && Object.keys(firebaseConfig).length > 0) {
-  if (getApps().length === 0) {
-    app = initializeApp(firebaseConfig)
-    db = getFirestore(app)
-    console.log('✅ Firebase initialized successfully')
+// Validate Firebase config has required fields
+const hasValidConfig = firebaseConfig && 
+  typeof firebaseConfig === 'object' &&
+  firebaseConfig.apiKey &&
+  firebaseConfig.projectId
+
+// Initialize Firebase (client-side only)
+if (typeof window !== 'undefined') {
+  if (hasValidConfig) {
+    try {
+      if (getApps().length === 0) {
+        app = initializeApp(firebaseConfig)
+        db = getFirestore(app)
+        if (process.env.NODE_ENV === 'development') {
+          console.log('✅ Firebase initialized successfully')
+        }
+      } else {
+        app = getApps()[0]
+        db = getFirestore(app)
+      }
+    } catch (error) {
+      console.error('❌ Firebase initialization error:', error)
+      console.error('Firebase config:', {
+        hasApiKey: !!firebaseConfig.apiKey,
+        hasProjectId: !!firebaseConfig.projectId,
+        hasAuthDomain: !!firebaseConfig.authDomain,
+      })
+    }
   } else {
-    app = getApps()[0]
-    db = getFirestore(app)
+    console.warn('⚠️ Firebase config is missing or invalid. Required fields: apiKey, projectId')
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Check your environment variables: NEXT_PUBLIC_FIREBASE_CONFIG')
+    }
   }
 }
 
