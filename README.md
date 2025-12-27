@@ -117,9 +117,9 @@ colors: {
 
 ### Content
 
-- Packages: Edit `lib/data.ts` → `PACKAGE_DATA`
+- Packages: Manage via Admin Dashboard or Firebase Console (all packages are in Firebase database)
 - Reviews: Edit `lib/data.ts` → `MOCK_REVIEWS`
-- Blog posts: Edit `components/BlogSection.tsx`
+- Blog posts: Manage via Admin Dashboard or Firebase Console
 
 ### Images
 

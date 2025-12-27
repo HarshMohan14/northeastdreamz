@@ -1,8 +1,8 @@
 # Firebase Security Rules - Quick Fix
 
-## 🔴 Current Issue: Missing Permissions for Blogs
+## 🔴 Current Issue: Missing Permissions for Packages/Blogs
 
-You're getting a "Missing or insufficient permissions" error because the Firestore security rules don't include permissions for the blogs collection.
+You're getting a "Missing or insufficient permissions" error because the Firestore security rules don't include permissions for the packages or blogs collections.
 
 ## ✅ Quick Fix
 
@@ -30,6 +30,12 @@ service cloud.firestore {
       allow write: if true; // Allow writes (you may want to restrict this in production)
     }
     
+    // Allow read/write for packages
+    match /artifacts/{appId}/public/data/packages/{packageId} {
+      allow read: if true;  // Anyone can read packages
+      allow write: if true; // Allow writes (you may want to restrict this in production)
+    }
+    
     // Deny all other access
     match /{document=**} {
       allow read, write: if false;
@@ -44,7 +50,7 @@ service cloud.firestore {
 
 ### Step 4: Test
 1. Go back to your admin panel
-2. Try creating a blog again
+2. Try creating a package or blog again
 3. It should work now! ✅
 
 ## 🔒 Production Security Recommendations
@@ -74,6 +80,12 @@ service cloud.firestore {
       allow write: if isAdmin(); // Only authenticated admins can write
     }
     
+    // Packages: public reads, authenticated writes
+    match /artifacts/{appId}/public/data/packages/{packageId} {
+      allow read: if true;  // Anyone can read packages
+      allow write: if isAdmin(); // Only authenticated admins can write
+    }
+    
     // Deny all other access
     match /{document=**} {
       allow read, write: if false;
@@ -87,6 +99,7 @@ service cloud.firestore {
 **Current Setup (Development):**
 - ✅ Inquiries: Public read/write (for form submissions)
 - ✅ Blogs: Public read/write (for admin panel)
+- ✅ Packages: Public read/write (for admin panel)
 - ❌ Everything else: Denied
 
 **This setup is fine for development/testing, but you should implement proper authentication for production.**
@@ -97,7 +110,7 @@ If you still get permission errors after updating rules:
 
 1. **Wait a few seconds** - Rules can take 10-30 seconds to propagate
 2. **Clear browser cache** - Sometimes cached rules cause issues
-3. **Check the collection path** - Make sure it matches: `artifacts/{appId}/public/data/blogs`
+3. **Check the collection path** - Make sure it matches: `artifacts/{appId}/public/data/packages` or `artifacts/{appId}/public/data/blogs`
 4. **Verify your APP_ID** - Check that `NEXT_PUBLIC_APP_ID` in `.env.local` matches what's in Firebase
 5. **Check Firebase Console** - Look for any error messages in the Rules tab
 

@@ -92,9 +92,9 @@ colors: {
 ```
 
 ### Update Content
-- **Packages**: `lib/data.ts` → `PACKAGE_DATA`
+- **Packages**: Manage via Admin Dashboard or Firebase Console (all packages are in Firebase database)
 - **Reviews**: `lib/data.ts` → `MOCK_REVIEWS`
-- **Blog Posts**: `components/BlogSection.tsx`
+- **Blog Posts**: Manage via Admin Dashboard or Firebase Console
 
 ### Change Fonts
 The site uses:

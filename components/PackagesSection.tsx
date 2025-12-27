@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { FileText } from 'lucide-react'
-import { PACKAGE_DATA, Package } from '@/lib/data'
+import { Package } from '@/lib/data'
+import { getPackages, PackageData } from '@/lib/firebase'
 import ItineraryModal from './ItineraryModal'
 import BookingModal from './BookingModal'
 
@@ -15,8 +16,37 @@ export default function PackagesSection() {
   const [showBooking, setShowBooking] = useState(false)
   const [bookingPackage, setBookingPackage] = useState<{ name: string; description: string } | null>(null)
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
+  const [allPackages, setAllPackages] = useState<Package[]>([])
+  const [isLoadingPackages, setIsLoadingPackages] = useState(true)
 
   useEffect(() => {
+    // Load packages from Firebase only
+    const loadPackages = async () => {
+      try {
+        const firebasePackages = await getPackages()
+        const convertedPackages: Package[] = firebasePackages.map((fp, index) => ({
+          id: fp.id || (index + 1),
+          state: fp.state,
+          name: fp.name,
+          cost: fp.cost,
+          days: fp.days,
+          image: fp.image,
+          itinerary: fp.itinerary || [],
+          dates: fp.dates,
+          gallery: fp.gallery,
+          availableDates: fp.availableDates,
+          pdfUrl: fp.pdfUrl,
+        }))
+        setAllPackages(convertedPackages)
+      } catch (error) {
+        console.error('Error loading packages:', error)
+        setAllPackages([]) // No fallback - all packages must be in database
+      } finally {
+        setIsLoadingPackages(false)
+      }
+    }
+    loadPackages()
+
     // Listen for state filter from StatesSection
     const handleStateFilter = (e: Event) => {
       const customEvent = e as CustomEvent
@@ -29,8 +59,8 @@ export default function PackagesSection() {
   }, [])
 
   const filteredPackages = filteredState
-    ? PACKAGE_DATA.filter((pkg) => pkg.state === filteredState)
-    : PACKAGE_DATA
+    ? allPackages.filter((pkg) => pkg.state === filteredState)
+    : allPackages
 
   const handleViewItinerary = (pkg: Package) => {
     setSelectedPackage(pkg)
@@ -135,7 +165,15 @@ export default function PackagesSection() {
             </motion.p>
           </motion.div>
 
-          {filteredPackages.length > 0 ? (
+          {isLoadingPackages ? (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16"
+            >
+              <p className="text-gray-600 text-base md:text-lg">Loading packages...</p>
+            </motion.div>
+          ) : filteredPackages.length > 0 ? (
             <div className="w-full">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-0" style={{ gridAutoRows: 'minmax(400px, 1fr)' }}>
                 {filteredPackages.slice(0, 4).map((pkg, index) => {

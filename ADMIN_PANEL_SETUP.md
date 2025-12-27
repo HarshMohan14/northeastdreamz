@@ -67,6 +67,12 @@ service cloud.firestore {
       allow write: if true; // Allow writes (you may want to restrict this in production)
     }
     
+    // Allow read/write for packages
+    match /artifacts/{appId}/public/data/packages/{packageId} {
+      allow read: if true;  // Anyone can read packages
+      allow write: if true; // Allow writes (you may want to restrict this in production)
+    }
+    
     // Deny all other access
     match /{document=**} {
       allow read, write: if false;

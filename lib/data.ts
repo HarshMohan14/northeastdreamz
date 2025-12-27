@@ -15,6 +15,7 @@ export interface ItineraryItem {
   day: number
   title: string
   desc: string
+  image?: string
 }
 
 export interface Package {
@@ -28,6 +29,7 @@ export interface Package {
   dates?: string
   gallery?: string[]
   availableDates?: { month: string; dates: number[] }[]
+  pdfUrl?: string
 }
 
 export const MOCK_REVIEWS: Review[] = [
@@ -132,6 +134,13 @@ export const CUSTOMER_IMAGES: string[] = [
   '/Northeast Dreamz Image Bank/WhatsApp Image 2025-12-07 at 4.17.24 PM.jpeg',
 ]
 
+/**
+ * @deprecated This static package data is deprecated.
+ * All packages are now managed in Firebase database.
+ * This array is kept for reference only and should not be used in the application.
+ * To migrate these packages to Firebase, use the migration script:
+ * scripts/migrate-packages-to-firebase.js or .ts
+ */
 export const PACKAGE_DATA: Package[] = [
   {
     id: 1,
@@ -174,6 +183,7 @@ export const PACKAGE_DATA: Package[] = [
       { month: 'March 2025', dates: [1, 8, 15, 22, 29] },
       { month: 'April 2025', dates: [5, 12, 19, 26] },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p/view?usp=sharing',
   },
   {
     id: 2,
@@ -216,6 +226,7 @@ export const PACKAGE_DATA: Package[] = [
       { month: 'March 2025', dates: [7, 14, 21, 28] },
       { month: 'April 2025', dates: [4, 11, 18, 25] },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q/view?usp=sharing',
   },
   {
     id: 3,
@@ -251,6 +262,7 @@ export const PACKAGE_DATA: Package[] = [
       { month: 'February 2025', dates: [7, 14, 21, 28] },
       { month: 'March 2025', dates: [7, 14, 21, 28] },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r/view?usp=sharing',
   },
   {
     id: 4,
@@ -293,6 +305,7 @@ export const PACKAGE_DATA: Package[] = [
       { month: 'March 2025', dates: [5, 12, 19, 26] },
       { month: 'April 2025', dates: [2, 9, 16, 23, 30] },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s/view?usp=sharing',
   },
   {
     id: 5,
@@ -318,6 +331,7 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Ferry and transfer out.',
       },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t/view?usp=sharing',
   },
   {
     id: 6,
@@ -348,6 +362,7 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer to Dibrugarh airport.',
       },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u/view?usp=sharing',
   },
   {
     id: 7,
@@ -378,6 +393,7 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer from Tezpur to Guwahati Airport.',
       },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v/view?usp=sharing',
   },
   {
     id: 8,
@@ -403,6 +419,7 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer out.',
       },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w/view?usp=sharing',
   },
   {
     id: 9,
@@ -445,6 +462,7 @@ export const PACKAGE_DATA: Package[] = [
       { month: 'March 2025', dates: [3, 10, 17, 24, 31] },
       { month: 'April 2025', dates: [7, 14, 21, 28] },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x/view?usp=sharing',
   },
   {
     id: 10,
@@ -470,6 +488,7 @@ export const PACKAGE_DATA: Package[] = [
         desc: 'Transfer to Bagdogra Airport (IXB).',
       },
     ],
+    pdfUrl: 'https://drive.google.com/file/d/0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y/view?usp=sharing',
   },
 ]
 

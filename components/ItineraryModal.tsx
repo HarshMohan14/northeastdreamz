@@ -39,6 +39,13 @@ export default function ItineraryModal({ packageData, isOpen, onClose, onBooking
   }
 
   const downloadItinerary = () => {
+    // If URL is provided in the package, open it in a new tab
+    if (packageData.pdfUrl) {
+      window.open(packageData.pdfUrl, '_blank', 'noopener,noreferrer')
+      return
+    }
+
+    // Fallback to text file if no URL is provided
     const content = `
 DETAILED ITINERARY - ${packageData.name}
 ${'='.repeat(60)}

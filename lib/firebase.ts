@@ -141,6 +141,21 @@ export interface BlogPostData {
   timestamp?: string
 }
 
+export interface PackageData {
+  id?: number
+  state: string
+  name: string
+  cost: string
+  days: number
+  image: string
+  itinerary: Array<{ day: number; title: string; desc: string; image?: string }>
+  dates?: string
+  gallery?: string[]
+  availableDates?: Array<{ month: string; dates: number[] }>
+  pdfUrl?: string
+  timestamp?: string
+}
+
 export async function saveBlog(data: BlogPostData): Promise<void> {
   if (!db) {
     console.warn('Firestore not initialized. Blog data:', data)
@@ -222,6 +237,134 @@ export async function deleteBlog(firebaseId: string): Promise<void> {
     await deleteDoc(blogDoc)
   } catch (error) {
     console.error('Error deleting blog from Firestore:', error)
+    throw error
+  }
+}
+
+// Package Management Functions
+export async function savePackage(data: PackageData): Promise<void> {
+  if (!db) {
+    console.warn('Firestore not initialized. Package data:', data)
+    return Promise.resolve()
+  }
+
+  try {
+    const appId = process.env.NEXT_PUBLIC_APP_ID || 'default-app-id'
+    const packagesCol = collection(db, `artifacts/${appId}/public/data/packages`)
+    
+    await addDoc(packagesCol, {
+      ...data,
+      timestamp: new Date().toISOString(),
+    })
+  } catch (error) {
+    console.error('Error writing package to Firestore:', error)
+    throw error
+  }
+}
+
+export async function getPackages(): Promise<(PackageData & { firebaseId?: string })[]> {
+  if (!db) {
+    console.warn('⚠️ Firestore not initialized - cannot fetch packages')
+    return []
+  }
+
+  try {
+    const appId = process.env.NEXT_PUBLIC_APP_ID || 'default-app-id'
+    const collectionPath = `artifacts/${appId}/public/data/packages`
+    console.log(`🔍 Fetching packages from: ${collectionPath}`)
+    
+    const packagesCol = collection(db, collectionPath)
+    
+    // Try to order by timestamp, but fallback to getting all packages if timestamp doesn't exist
+    let querySnapshot
+    try {
+      const q = query(packagesCol, orderBy('timestamp', 'desc'))
+      querySnapshot = await getDocs(q)
+      console.log(`✅ Successfully queried packages with timestamp ordering`)
+    } catch (timestampError: any) {
+      // If timestamp ordering fails, get all packages without ordering
+      console.warn('⚠️ Timestamp ordering failed, fetching all packages without order:', timestampError?.message || timestampError)
+      querySnapshot = await getDocs(packagesCol)
+      console.log(`✅ Successfully fetched packages without ordering`)
+    }
+    
+    const packagesData: (PackageData & { firebaseId?: string })[] = []
+    querySnapshot.forEach((docSnapshot) => {
+      const data = docSnapshot.data()
+      if (!data) {
+        console.warn(`⚠️ Package document ${docSnapshot.id} has no data`)
+        return
+      }
+      
+      packagesData.push({
+        firebaseId: docSnapshot.id,
+        id: packagesData.length + 1,
+        ...data,
+      } as PackageData & { firebaseId?: string })
+    })
+    
+    // Sort manually by timestamp if available, otherwise keep original order
+    packagesData.sort((a, b) => {
+      const aTime = a.timestamp || ''
+      const bTime = b.timestamp || ''
+      return bTime.localeCompare(aTime) // Descending order
+    })
+    
+    console.log(`✅ Fetched ${packagesData.length} packages from Firebase`)
+    if (packagesData.length > 0) {
+      console.log('📦 Sample package:', {
+        id: packagesData[0].id,
+        name: packagesData[0].name,
+        state: packagesData[0].state,
+        firebaseId: packagesData[0].firebaseId,
+      })
+    }
+    
+    return packagesData
+  } catch (error: any) {
+    console.error('❌ Error fetching packages from Firestore:', error)
+    console.error('Error details:', {
+      message: error?.message,
+      code: error?.code,
+      stack: error?.stack,
+    })
+    return []
+  }
+}
+
+export async function updatePackage(firebaseId: string, data: PackageData): Promise<void> {
+  if (!db) {
+    console.warn('Firestore not initialized')
+    return Promise.resolve()
+  }
+
+  try {
+    const appId = process.env.NEXT_PUBLIC_APP_ID || 'default-app-id'
+    const packageDoc = doc(db, `artifacts/${appId}/public/data/packages/${firebaseId}`)
+    
+    await updateDoc(packageDoc, {
+      ...data,
+      timestamp: new Date().toISOString(),
+    })
+  } catch (error) {
+    console.error('Error updating package in Firestore:', error)
+    throw error
+  }
+}
+
+export async function deletePackage(firebaseId: string): Promise<void> {
+  if (!db) {
+    console.warn('Firestore not initialized')
+    return Promise.resolve()
+  }
+
+  try {
+    const appId = process.env.NEXT_PUBLIC_APP_ID || 'default-app-id'
+    const packageDoc = doc(db, `artifacts/${appId}/public/data/packages/${firebaseId}`)
+    
+    await deleteDoc(packageDoc)
+  } catch (error) {
+    console.error('Error deleting package from Firestore:', error)
     throw error
   }
 }
