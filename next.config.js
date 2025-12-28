@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export', // Enable static export for GoDaddy hosting
+  trailingSlash: true, // Better for static hosting
   images: {
     remotePatterns: [
       {
@@ -19,8 +21,11 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
-    unoptimized: false,
+    unoptimized: true, // Required for static export
   },
+  // Optimize for SEO
+  compress: true,
+  poweredByHeader: false, // Remove X-Powered-By header for security
 }
 
 module.exports = nextConfig
