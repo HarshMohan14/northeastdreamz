@@ -155,6 +155,8 @@ export default function BookingModal({ isOpen, onClose, packageName, packageDesc
                     type="month"
                     id="plannedVisit"
                     name="plannedVisit"
+                    min="2025-01"
+                    max="2026-12"
                     value={formData.plannedVisit}
                     onChange={(e) => setFormData({ ...formData, plannedVisit: e.target.value })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-primary focus:border-brand-primary transition"

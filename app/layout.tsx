@@ -55,9 +55,9 @@ export default function RootLayout({
               logo: 'https://northeastdreamz.com/logo.png',
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+91-99000-00000',
+                telephone: '+91-70850-62889',
                 contactType: 'Customer Service',
-                email: 'info@northeastdreamz.com',
+                email: 'northeastdreamz@gmail.com',
               },
               areaServed: {
                 '@type': 'State',

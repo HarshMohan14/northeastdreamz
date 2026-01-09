@@ -166,8 +166,8 @@ export default function Footer({ showCTA = false }: FooterProps) {
 
           <div>
             <h4 className="text-base md:text-lg font-light mb-5 text-white">Contact</h4>
-            <p className="text-sm text-white/80 mb-2 font-light">Email: info@northeastdreamz.com</p>
-            <p className="text-sm text-white/80 mb-5 font-light">Phone: +91 99000 00000</p>
+            <p className="text-sm text-white/80 mb-2 font-light">Email: northeastdreamz@gmail.com</p>
+            <p className="text-sm text-white/80 mb-5 font-light">Phone: +91 70850 62889</p>
             <div className="flex space-x-4">
               <a
                 href="https://instagram.com"

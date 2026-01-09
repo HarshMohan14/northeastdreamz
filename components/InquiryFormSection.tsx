@@ -123,8 +123,8 @@ export default function InquiryFormSection() {
                 </div>
                 <div>
                   <h4 className="font-light text-brand-primary mb-1">Email</h4>
-                  <a href="mailto:info@northeastdreamz.com" className="text-gray-600 hover:text-brand-primary transition-colors">
-                    info@northeastdreamz.com
+                  <a href="mailto:northeastdreamz@gmail.com" className="text-gray-600 hover:text-brand-primary transition-colors">
+                    northeastdreamz@gmail.com
                   </a>
                 </div>
               </div>
@@ -135,8 +135,8 @@ export default function InquiryFormSection() {
                 </div>
                 <div>
                   <h4 className="font-light text-brand-primary mb-1">Phone</h4>
-                  <a href="tel:+919900000000" className="text-gray-600 hover:text-brand-primary transition-colors">
-                    +91 99000 00000
+                  <a href="tel:+917085062889" className="text-gray-600 hover:text-brand-primary transition-colors">
+                    +91 70850 62889
                   </a>
                 </div>
               </div>

@@ -10,7 +10,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({ 
-  phoneNumber = '919900000000', // Default phone number (without +)
+  phoneNumber = '917085062889', // Indian phone number: +91 7085062889
   message = 'Hello! I\'m interested in learning more about your travel packages.'
 }: WhatsAppButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
